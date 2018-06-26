@@ -5,6 +5,11 @@ import googlemaps
 from textblob import TextBlob
 import sys
 import json
+import mysql.connector as mariadb
+
+# Open database connection
+mariadb_connection = mariadb.connect(user='root', password='', database='csci3308')
+cursor = mariadb_connection.cursor()
 
 # Read in secrets file
 with open("../../secrets.json","r") as f:
@@ -29,7 +34,7 @@ gmaps = googlemaps.Client(key = secrets['google']['api_key'])
 # Get list of places with trend data available. Trim it to 20 cities in the US
 trendPlaces = api.trends_available()
 trendPlaces = [trend for trend in trendPlaces if trend['countryCode'] == 'US']
-trendPlaces = trendPlaces[:20]
+trendPlaces = trendPlaces[:5]
 
 # Iterate through each place with data
 for trendPlace in trendPlaces:
@@ -65,3 +70,9 @@ for trendPlace in trendPlaces:
 
     # Print summary of trend for this city, with sentiment analysis
     print(trend['name'] + " in " + city + " | Analysis: " + str(blob.sentiment))
+	
+    # insert stuff into database
+    cursor.execute("INSERT INTO tweeties (City,Trend,Lat,Lng,Sentiment) VALUES (%s,%s,%s,%s,%s)",(city,trend['name'],str(location['lat']),str(location['lng']),str(blob.sentiment.polarity)))
+
+mariadb_connection.commit()
+mariadb_connection.close()
