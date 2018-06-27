@@ -104,7 +104,7 @@ for trendPlace in trendPlaces:
     # insert stuff into database
     cursor.execute("INSERT INTO tweeties (City,Trend,Lat,Lng,Sentiment,PTweet1,PTweet2,PTweet3,PTweet4,PTweet5,NTweet1,NTweet2,NTweet3,NTweet4,NTweet5) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(city,trend['name'],str(location['lat']),str(location['lng']),str(blob.sentiment.polarity),mostPositive[0][1],mostPositive[1][1],mostPositive[2][1],mostPositive[3][1],mostPositive[4][1],mostNegative[0][1],mostNegative[1][1],mostNegative[2][1],mostNegative[3][1],mostNegative[4][1]))
 
-cursor.execute("DELETE FROM tweeties WHERE Timestamp < DATEADD(minute, -30, GETDATE())")
+cursor.execute("DELETE FROM tweeties WHERE Timestamp < DATE_ADD(NOW(), INTERVAL '-30' MINUTE)")
 
 mariadb_connection.commit()
 mariadb_connection.close()
