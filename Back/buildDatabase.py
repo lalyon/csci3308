@@ -41,7 +41,7 @@ trendPlaces = api.trends_available()
 trendPlaces = [trend for trend in trendPlaces if trend['countryCode'] == 'US']
 
 # select random cities with trend data
-max = 10
+max = 74
 nPlaces = max if len(trendPlaces) > max else len(trendPlaces)
 trendPlaces = random.sample(trendPlaces,nPlaces)
 
