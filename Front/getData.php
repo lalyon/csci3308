@@ -1,7 +1,7 @@
 <?php
 #This is a class that we will keep our information in;
 class City {
-  public $Name = "";
+  public $City = "";
   public $Trend = "";
   public $Lat = "";
   public $Lng = "";
@@ -64,8 +64,9 @@ if ($tweetData->num_rows > 0){
       $timeCursor->add($dateInterval);
       array_push($timeArray, $timeWindow);
     }
+    echo json.encode($row);
     $city = new City;
-    $city->$Name = $row["Name"];
+    $city->$City = $row["City"];
     $city->$Trend = $row["Trend"];
     $city->$Lat = $row["Lat"];
     $city->$Lng = $row["Lng"];
