@@ -58,34 +58,34 @@ if ($tweetData->num_rows > 0){
   while($row = $tweetData->fetch_assoc()) {
     if(strtotime($row["Timestamp"]) >  $timeCursor) {
       $timeWindow = new TimeWindow;
-      $timeWindow->$Time = date_format($timeCursor, 'Y-m-d H:i:s');
-      $timeWindow->$Cities = $cities;
+      $timeWindow->Time = date_format($timeCursor, 'Y-m-d H:i:s');
+      $timeWindow->Cities = $cities;
       $cities = array();
       $timeCursor->add($dateInterval);
       array_push($timeArray, $timeWindow);
     }
     echo json_encode($row);
     $city = new City;
-    $city->$City = $row["City"];
-    $city->$Trend = $row["Trend"];
-    $city->$Lat = $row["Lat"];
-    $city->$Lng = $row["Lng"];
-    $city->$Sentiment = $row["Sentiment"];
-    $city->$PTweet1 = $row["PTweet1"];
-    $city->$PTweet2 = $row["PTweet2"];
-    $city->$PTweet3 = $row["PTweet3"];
-    $city->$PTweet4 = $row["PTweet4"];
-    $city->$PTweet5 = $row["PTweet5"];
-    $city->$NTweet1 = $row["PTweet1"];
-    $city->$NTweet2 = $row["PTweet2"];
-    $city->$NTweet3 = $row["PTweet3"];
-    $city->$NTweet4 = $row["PTweet4"];
-    $city->$NTweet5 = $row["NTweet5"];
+    $city->City = $row["City"];
+    $city->Trend = $row["Trend"];
+    $city->Lat = $row["Lat"];
+    $city->Lng = $row["Lng"];
+    $city->Sentiment = $row["Sentiment"];
+    $city->PTweet1 = $row["PTweet1"];
+    $city->PTweet2 = $row["PTweet2"];
+    $city->PTweet3 = $row["PTweet3"];
+    $city->PTweet4 = $row["PTweet4"];
+    $city->PTweet5 = $row["PTweet5"];
+    $city->NTweet1 = $row["PTweet1"];
+    $city->NTweet2 = $row["PTweet2"];
+    $city->NTweet3 = $row["PTweet3"];
+    $city->NTweet4 = $row["PTweet4"];
+    $city->NTweet5 = $row["NTweet5"];
     array_push($cities, $city);
   }
   $timeWindow = new TimeWindow;
-  $timeWindow->$Time = date_format($timeCursor, 'Y-m-d H:i:s');
-  $timeWindow->$Cities = $cities;
+  $timeWindow->Time = date_format($timeCursor, 'Y-m-d H:i:s');
+  $timeWindow->Cities = $cities;
   array_push($timeArray, $timeWindow);
 } else {
   echo "Empty Set returned<br>";
