@@ -15,11 +15,10 @@ echo "Connected successfully";
 
 #This gets the start and end time of the range of tweets from our the server and assigns it to a variable
 $startTime = $_GET["startTime"];
-echo "startTime gotten";
 $endTime = $_GET["endTime"];
 
-echo $startTime;
-echo $endTime;
+echo startTime;
+echo endTime;
 
 
 #This gets all of the data from mariadb for the time range
