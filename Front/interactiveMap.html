@@ -10,16 +10,19 @@ $(document).ready(function() {
    //  process Ajax response.
    $(':submit').click(function (event) {
       event.preventDefault();  // Do not run the default action
-      var submittedMessage = $(':text[name="message"]').val();
-      console.log(submittedMessage)
-      $("#message").load("index.php?startTime=2000-10-10%2012:00:00&endTime=2020-10-10%2012:00:00");
+      var startTime = $(':text[name="startTimeMessage"]').val();
+      var endTime = $(':text[name="endTimeMessage"]').val();
+      console.log(startTime)
+      console.log(endTime)
+      $("#message").load("index.php?startTime&endTime");
    });
 });
 </script>
 </head>
 <body>
 <form method="GET">
-  <label>Enter your message: <input type="text" name="message"></label><br>
+  <label>Start Time: <input type="text" name="startTimeMessage"></label><br>
+  <label>End Time: <input type="text" name="endTimeMessage"></label><br>
   <input type="submit">
 </form>
 <p id="message">&nbsp;</p>
