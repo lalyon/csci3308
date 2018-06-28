@@ -5,6 +5,7 @@ import sys
 import json
 import mysql.connector as mariadb
 import random
+import time
 
 # Open database connection
 mariadb_connection = mariadb.connect(user='root', password='', database='csci3308', charset="utf8mb4")
@@ -45,7 +46,7 @@ trendPlaces = random.sample(trendPlaces,nPlaces)
 
 # Iterate through each place with data
 for trendPlace in trendPlaces:
-
+    print("City")
     # Extract the WOEID and city name
     woeid = trendPlace['woeid']
     city = trendPlace['name']
@@ -53,6 +54,7 @@ for trendPlace in trendPlaces:
     # Get a latitude / longitude string for geocode searching with google
     location = gmaps.geocode(city)[0]['geometry']['location']
     geocode = str(location['lat']) + "," + str(location['lng']) + ",10mi"
+    time.sleep(1.1)
 
     # Get the list of trends for this city
     trends = api.trends_place(woeid)[0]['trends']
