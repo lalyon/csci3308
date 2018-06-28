@@ -1,8 +1,8 @@
 <?php
 #This stores the server information
-$serverName = "localhost"
-$userName = "root"
-$password = ""
+$serverName = "localhost";
+$userName = "root";
+$password = "";
 
 #This creates a connection
 $connection = new mysqli($serverName, $userName, $password);
@@ -15,12 +15,12 @@ echo "Connected successfully";
 
 #This gets the start and end time of the range of tweets from our the server and assigns it to a variable
 $startTime = $_GET["startTime"];
-$endTime = $_GET["endTime"]
+$endTime = $_GET["endTime"];
 
 #This gets all of the data from mariadb for the time range
 $mariadbData = "SELECT * FROM Tweeties WHERE startTime <= Timestamp AND Timestamp <= endTime ";
 $tweetData = $connection->query($mariadbData);
 
-echo $tweetData
+echo $tweetData;
 
 ?>
