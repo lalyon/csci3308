@@ -97,7 +97,7 @@ for trendPlace in trendPlaces:
     blob = TextBlob(tweetTexts)
 
     # Print summary of trend for this city, with sentiment analysis
-    print(trend['name'] + " in " + city + " | Analysis: " + str(blob.sentiment))
+    #print(trend['name'] + " in " + city + " | Analysis: " + str(blob.sentiment))
 
     # insert stuff into database
     cursor.execute("INSERT INTO tweeties (City,Trend,Lat,Lng,Sentiment,PTweet1,PTweet2,PTweet3,PTweet4,PTweet5,NTweet1,NTweet2,NTweet3,NTweet4,NTweet5) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(city,trend['name'],str(location['lat']),str(location['lng']),str(blob.sentiment.polarity),mostPositive[0][1],mostPositive[1][1],mostPositive[2][1],mostPositive[3][1],mostPositive[4][1],mostNegative[0][1],mostNegative[1][1],mostNegative[2][1],mostNegative[3][1],mostNegative[4][1]))
