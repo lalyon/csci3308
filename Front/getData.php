@@ -60,7 +60,9 @@ if ($tweetData->num_rows > 0){
       $timeWindow->Time = date_format($timeCursor, 'Y-m-d H:i:s');
       $timeWindow->Cities = $cities;
       $cities = array();
-      $timeCursor->add($dateInterval);
+      while ($rowTime > $timeCursor) {
+	      $timeCursor->add($dateInterval);
+      }
       array_push($timeArray, $timeWindow);
     }
     $city = new City;
