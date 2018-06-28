@@ -56,7 +56,8 @@ $timeCursor->add($dateInterval);
 if ($tweetData->num_rows > 0){
   $cities = array();
   while($row = $tweetData->fetch_assoc()) {
-    if(strtotime($row["Timestamp"]) >  $timeCursor) {
+    $rowTime = new DateTime($row["Timestamp"]);
+    if($rowTime > $timeCursor) {
       $timeWindow = new TimeWindow;
       $timeWindow->Time = date_format($timeCursor, 'Y-m-d H:i:s');
       $timeWindow->Cities = $cities;
