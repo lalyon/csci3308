@@ -48,7 +48,7 @@ $tweetData = $connection->query($mariadbData);
 
 #This will make an array that contains the times of each tweet and some.
 $timeArray =  array();
-$dateInterval = new DateInterval('P15M');
+$dateInterval = new DateInterval('P15i');
 $timeCursor = new DateTime($startTime);
 $timeCursor->add($dateInterval);
 if ($tweetData->num_rows > 0){
