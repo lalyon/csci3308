@@ -43,8 +43,6 @@ echo "Connected successfully";
 $startTime = $_GET["startTime"];
 $endTime = $_GET["endTime"];
 
-echo $startTime;
-
 #This gets all of the data from mariadb for the time range
 $mariadbData = "SELECT * FROM Tweeties WHERE $startTime <= Timestamp AND Timestamp <= $endTime ;";
 $tweetData = $connection->query($mariadbData);
@@ -52,17 +50,17 @@ $tweetData = $connection->query($mariadbData);
 #This will make an array that contains the times of each tweet and some.
 $timeArray =  array();
 $dateInterval = new DateInterval('P15M');
-$timeCurser = strtotime($startTime);
-$timeCurser->add($dateInterval);
+$timeCursor = new DateTime($startTime);
+$timeCursor->add($dateInterval);
 if ($tweetData->num_rows > 0){
   $cities = array();
   while($row = $tweetData->fetch_assoc()) {
-    if(strtotime($row["Timestamp"]) >  $timeCurser) {
+    if(strtotime($row["Timestamp"]) >  $timeCursor) {
       $timeWindow = new TimeWindow;
-      $timeWindow->$Time = date_format($timeCurser, 'Y-m-d H:i:s');
+      $timeWindow->$Time = date_format($timeCursor, 'Y-m-d H:i:s');
       $timeWindow->$Cities = $cities;
       $cities = array();
-      $timeCurser->add($dateInterval);
+      $timeCursor->add($dateInterval);
       array_push($timeArray, $timeWindow);
     }
     $city = new City;
@@ -84,7 +82,7 @@ if ($tweetData->num_rows > 0){
     array_push($cities, $city);
   }
   $timeWindow = new TimeWindow;
-  $timeWindow->$Time = date_format($timeCurser, 'Y-m-d H:i:s');
+  $timeWindow->$Time = date_format($timeCursor, 'Y-m-d H:i:s');
   $timeWindow->$Cities = $cities;
   array_push($timeArray, $timeWindow);
 }
