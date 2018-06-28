@@ -11,9 +11,7 @@ $(document).ready(function() {
    $(':submit').click(function (event) {
       event.preventDefault();  // Do not run the default action
       var submittedMessage = $(':text[name="message"]').val();
-   	$.get("ProcessMessage.php",function(data,satatus){
-		alert("Data: " + data + "\nStatus: " + status);
-	});
+      $("#message").load("ProcessMessage.php?message="+submittedmessage);
    });
 });
 </script>
