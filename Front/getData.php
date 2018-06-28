@@ -37,7 +37,6 @@ $connection = new mysqli($serverName, $userName, $password, $database);
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-echo "Connected successfully";
 
 #This gets the start and end time of the range of tweets from our the server and assigns it to a variable
 $startTime = $_GET["startTime"];
@@ -45,7 +44,6 @@ $endTime = $_GET["endTime"];
 
 #This gets all of the data from mariadb for the time range
 $mariadbData = "SELECT * FROM Tweeties WHERE '$startTime' <= Timestamp AND Timestamp <= '$endTime' ;";
-echo $mariadbData;
 $tweetData = $connection->query($mariadbData);
 
 #This will make an array that contains the times of each tweet and some.
@@ -65,7 +63,6 @@ if ($tweetData->num_rows > 0){
       $timeCursor->add($dateInterval);
       array_push($timeArray, $timeWindow);
     }
-    echo json_encode($row);
     $city = new City;
     $city->City = $row["City"];
     $city->Trend = $row["Trend"];
