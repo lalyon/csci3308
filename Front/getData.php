@@ -85,6 +85,8 @@ if ($tweetData->num_rows > 0){
   $timeWindow->$Time = date_format($timeCursor, 'Y-m-d H:i:s');
   $timeWindow->$Cities = $cities;
   array_push($timeArray, $timeWindow);
+} else {
+  echo "Empty Set returned<br>";
 }
 
 
