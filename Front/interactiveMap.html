@@ -13,9 +13,10 @@ $(document).ready(function(){
 	//Bind submit button onclick handler to send an Ajax request and process Ajax response.
 	$(':submit').click(function (event){
 		event.preventDefault(); //Do not run default (display in url)
-		var startTime = $(':test[name="startTimeMessage"]').val();
+		//var startTime = $(':test[name="startTimeMessage"]').val();
+		var startTime = "ja;lsie"
 		var endTime = $(':test[name="endTimeMessage"]').val();
-		console.log(startTimeMessage)
+		//console.log(startTimeMessage)
 		consle.log(endTimeMessage)
 		$("#message").load("index.php?startTime&endTime");
 		//actually getData.php
