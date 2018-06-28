@@ -17,6 +17,10 @@ echo "Connected successfully";
 $startTime = $_GET["startTime"];
 $endTime = $_GET["endTime"];
 
+echo $startTime;
+echo $endTime;
+
+
 #This gets all of the data from mariadb for the time range
 $mariadbData = "SELECT * FROM Tweeties WHERE startTime <= Timestamp AND Timestamp <= endTime ";
 $tweetData = $connection->query($mariadbData);
