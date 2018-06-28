@@ -64,7 +64,7 @@ if ($tweetData->num_rows > 0){
       $timeCursor->add($dateInterval);
       array_push($timeArray, $timeWindow);
     }
-    echo json.encode($row);
+    echo json_encode($row);
     $city = new City;
     $city->$City = $row["City"];
     $city->$Trend = $row["Trend"];
