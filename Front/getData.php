@@ -3,9 +3,10 @@
 $serverName = "localhost";
 $userName = "root";
 $password = "";
+$database = "csci3308";
 
 #This creates a connection
-$connection = new mysqli($serverName, $userName, $password);
+$connection = new mysqli($serverName, $userName, $password, $database);
 
 // Check connection
 if ($connection->connect_error) {
@@ -18,9 +19,13 @@ $startTime = $_GET["startTime"];
 $endTime = $_GET["endTime"];
 
 #This gets all of the data from mariadb for the time range
-$mariadbData = "SELECT * FROM Tweeties WHERE startTime <= Timestamp AND Timestamp <= endTime ";
+$mariadbData = "SELECT * FROM Tweeties WHERE '" . startTime . "' <= Timestamp AND Timestamp <= '" . endTime "';";
 $tweetData = $connection->query($mariadbData);
 
-echo $tweetData;
+if ($tweetData->num_rows > 0) {
+	while($row = $tweetData->fetch_assoc()) {
+
+
+$connection->close();
 
 ?>
