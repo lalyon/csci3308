@@ -1,0 +1,5 @@
+City
+Traceback (most recent call last):
+  File "buildDatabase.py", line 72, in <module>
+    tweets = tweepy.Cursor(api.search, q=trend['query'], geocode=geocode).items(99)
+NameError: name 'geocode' is not defined

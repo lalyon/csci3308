@@ -43,7 +43,7 @@ $startTime = $_GET["startTime"];
 $endTime = $_GET["endTime"];
 
 #This gets all of the data from mariadb for the time range
-$mariadbData = "SELECT * FROM Tweeties WHERE '$startTime' <= Timestamp AND Timestamp <= '$endTime' ;";
+$mariadbData = "SELECT Timestamp,tweeties.City,Lat,Lng,Trend,Sentiment,PTweet1,PTweet2,PTweet3,PTweet4,PTweet5,NTweet1,NTweet2,NTweet3,NTweet4,NTweet5 FROM tweeties INNER JOIN cities ON cities.City = tweeties.City AND '$startTime' <= Timestamp AND '$endTime' >= Timestamp;";
 $tweetData = $connection->query($mariadbData);
 
 #This will make an array that contains the times of each tweet and some.

@@ -1,5 +1,5 @@
 import tweepy
-import googlemaps
+#import googlemaps
 from textblob import TextBlob
 import sys
 import json
@@ -33,7 +33,7 @@ api = tweepy.API(
 )
 
 # Get googlemaps api wrapper
-gmaps = googlemaps.Client(key = secrets['google']['api_key'])
+#gmaps = googlemaps.Client(key = secrets['google']['api_key'])
 
 # Get list of places with trend data available. Trim it to 20 cities in the US
 trendPlaces = api.trends_available()
@@ -52,9 +52,11 @@ for trendPlace in trendPlaces:
     city = trendPlace['name']
 
     # Get a latitude / longitude string for geocode searching with google
-    location = gmaps.geocode(city)[0]['geometry']['location']
-    geocode = str(location['lat']) + "," + str(location['lng']) + ",10mi"
-    time.sleep(1.1)
+    #location = gmaps.geocode(city)[0]['geometry']['location']
+    queryCity = cursor.execute("SELECT Lat,Lng FROM cities WHERE City = '" + city+"';")
+    location = cursor.fetchone()
+    geocode = str(location[0]) + "," + str(location[1]) + ",10mi"
+    #time.sleep(1.1)
 
     # Get the list of trends for this city
     trends = api.trends_place(woeid)[0]['trends']
@@ -102,7 +104,7 @@ for trendPlace in trendPlaces:
     #print(trend['name'] + " in " + city + " | Analysis: " + str(blob.sentiment))
 
     # insert stuff into database
-    cursor.execute("INSERT INTO tweeties (City,Trend,Lat,Lng,Sentiment,PTweet1,PTweet2,PTweet3,PTweet4,PTweet5,NTweet1,NTweet2,NTweet3,NTweet4,NTweet5) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(city,trend['name'],str(location['lat']),str(location['lng']),str(blob.sentiment.polarity),mostPositive[0][1],mostPositive[1][1],mostPositive[2][1],mostPositive[3][1],mostPositive[4][1],mostNegative[0][1],mostNegative[1][1],mostNegative[2][1],mostNegative[3][1],mostNegative[4][1]))
+    cursor.execute("INSERT INTO tweeties (City,Trend,Sentiment,PTweet1,PTweet2,PTweet3,PTweet4,PTweet5,NTweet1,NTweet2,NTweet3,NTweet4,NTweet5) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(city,trend['name'],str(blob.sentiment.polarity),mostPositive[0][1],mostPositive[1][1],mostPositive[2][1],mostPositive[3][1],mostPositive[4][1],mostNegative[0][1],mostNegative[1][1],mostNegative[2][1],mostNegative[3][1],mostNegative[4][1]))
 
 cursor.execute("DELETE FROM tweeties WHERE Timestamp < DATE_ADD(NOW(), INTERVAL '-7' DAY)")
 
