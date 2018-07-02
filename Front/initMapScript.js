@@ -106,6 +106,7 @@ function addMarker(props, timeout){
 
 function updateMap(data) {
 	data = JSON.parse(data)
+	console.log(data)
 	cities = []
 	for (var i = 0; i < data.length; i++) {
 		obj = data[i]
