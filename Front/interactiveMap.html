@@ -17,6 +17,8 @@
 
     <link rel="stylesheet" href="sampl.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="dates.js"></script>
   </head>
 
   <body class="text-center" data-gr-c-s-loaded="true">
@@ -50,7 +52,11 @@
 
       <div class="row">
         <div class="span2">
-
+          <form method="GET">
+              <label>Time:<input type="text" name = "startTimeMessage"></label>
+              <br>
+              <input type="submit">
+          </form>
           <form class="form-horizontal">
 
             <!-- <div id="tweetFilter">
