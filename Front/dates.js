@@ -3,11 +3,9 @@ $(document).ready(function() {
    //  process Ajax response.
    $(':submit').click(function (event) {
       event.preventDefault();  // Do not run the default action
-      var startTime = $(':text[name="startTimeMessage"]').val();
-      //var endTime = $(':text[name="endTimeMessage"]').val();
+      var startTime = ($(':text[name="startTimeMessage"]').val()).replace(' ','%20');
       console.log(startTime)
-      //console.log(endTime)
-      $("#message").load("index.php?startTime");//&endTime");
+      $("#message").load("index.php?startTime="+startTime);
    });
 });
 
