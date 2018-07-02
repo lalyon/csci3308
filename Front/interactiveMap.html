@@ -1,31 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>jQuery Example 3: Ajax Request/Response</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-   // Bind submit button onclick handler to send an Ajax request and
-   //  process Ajax response.
-   $(':submit').click(function (event) {
-      event.preventDefault();  // Do not run the default action
-      var startTime = $(':text[name="startTimeMessage"]').val().replace(" ","%20");
-      var endTime = $(':text[name="endTimeMessage"]').val().replace(" ","%20");
-      console.log(startTime)
-      console.log(endTime)
-      $("#message").load("getData.php?startTime=" + startTime + "&endTime=" + endTime);
-   });
-});
-</script>
-</head>
-<body>
-<form method="GET">
-  <label>Start Time: <input type="text" name="startTimeMessage"></label><br>
-  <label>End Time: <input type="text" name="endTimeMessage"></label><br>
-  <input type="submit">
-</form>
-<p id="message">&nbsp;</p>
-</body>
-</html>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Twitter Map</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="sampl.css">
+
+  </head>
+
+  <body class="text-center" data-gr-c-s-loaded="true">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column" style="width: 100%">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Twitter Map</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link" href="#faq">Map</a>
+          </nav>
+        </div>
+      </header>
+
+      <!--Tweet sidenav opens when map pin is clicked-->
+      <div id="tweetStream" class ="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeTopTweets()">&times;</a>
+        <p>Tweets go here!</p>
+      </div>
+
+
+      <main role="main" class="inner cover">
+
+        <h1 class="cover-heading">Welcome. </h1>
+        <br>
+        <!-- <h3> <a class="btn btn-lg btn-secondary" href="#map"> Go to map </a></h3> -->
+
+        <div><br><br><br></div>
+      </main>
+
+      <div class="row">
+        <div class="span2">
+
+          <form class="form-horizontal">
+
+            <!-- <div id="tweetFilter">
+                <fieldset>
+                  !Keyword search box
+                  <h4>Search by keyword:</h4>
+                  <input type="text" name="keyword" placeholder="e.g. World Cup, SpaceX, John Travolta ..."><br><br>
+                </fieldset>
+            </div> -->
+
+            <div id="tweetFilter">
+              <!-- <form action=""> -->
+
+                <fieldset>
+                  <!--Keyword search box-->
+                  <h4>Search by keyword:</h4>
+                  <input type="text" name="keyword" placeholder="e.g. World Cup, SpaceX, John Travolta ..."><br><br>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Filter by sentiment</legend>
+                  <input type="radio" name="sentiment" value="veryPos">Very positive<br>
+                  <input type="radio" name="sentiment" value="mostlyPos">Mostly positive<br>
+                  <input type="radio" name="sentiment" value="slightlyPos">Slightly positive<br>
+                  <input type="radio" name="sentiment" value="Neutral">Neutral<br>
+                  <input type="radio" name="sentiment" value="slightlyNeg">Slightly negative<br>
+                  <input type="radio" name="sentiment" value="mostlyNeg">Mostly negative<br>
+                  <input type="radio" name="sentiment" value="veryNeg">Very negative<br>
+                  <!--Dropdown button for cities-->
+                  <!-- Filter by city:<br>
+                  <div class="dropdown">
+                    <button class="dropbtn">Cities</button>
+                    <div class="dropdown-content">
+                    <a href="#">Denver, CO</a>
+                    <a href="#">New York City, NY</a>
+                    <a href="#">Los Angeles, CA</a>
+                    <a href="#">Houston, TX</a>
+                    <a href="#">Chicago, IL</a>
+                  </div> -->
+                <!-- </div><br><br> -->
+                <br><br>
+                <input type="submit" value="Create Map">
+              </fieldset>
+            <!-- </form> -->
+            </div>
+
+        </form>
+      </div>
+
+      <div class="span2">
+        <br>
+      </div>
+
+      <div class="span6 offset4">
+        <!--Map div-->
+        <div id="map">
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+      <!-- <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Footer :)</p>
+        </div>
+      </footer> -->
+
+
+
+
+    <!-- Initialize default map -->
+    <script src="initMapScript.js"></script>
+
+    <!--Connect to Google Maps API-->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPoO1nFkhEmg8GVkBjvinwpdxEyGJd9qw&callback=initMap">
+    </script>
+
+    <!--Include Visualization library for heatmaps-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPoO1nFkhEmg8GVkBjvinwpdxEyGJd9qw&libraries=visualization">
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="popper.js"></script>
+    <script src="bootstrap.js"></script>
+
 

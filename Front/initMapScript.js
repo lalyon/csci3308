@@ -9,7 +9,7 @@ Needs to be addressed still: mouseover info window for cities near edge of map, 
 function initMap() {
   var map = new google.maps.Map(
       document.getElementById('map'), {
-        zoom: 4,
+        zoom: 3,
         center: {lat:39.8283, lng:-98.5795},
         disableDefaultUI:true,
         zoomControl: false,
