@@ -18,12 +18,6 @@ class City {
   public $NTweet5 = "";
 }
 
-#This is a class to put our city class into
-class TimeWindow {
-  public $Time = "";
-  public $Cities = array();
-}
-
 #This stores the server information
 $serverName = "localhost";
 $userName = "root";
@@ -40,31 +34,21 @@ if ($connection->connect_error) {
 
 #This gets the start and end time of the range of tweets from our the server and assigns it to a variable
 $startTime = $_GET["startTime"];
-$endTime = $_GET["endTime"];
+$endTime = $startTime;
+
+$dateInterval = new DateInterval('PT15M');
+$startTimeObj = new DateTime($startTime);
+$startTimeObj->sub($dateInterval);
+$startTime = date_format($startTimeObj, 'Y-m-d H:i:s');
 
 #This gets all of the data from mariadb for the time range
 $mariadbData = "SELECT Timestamp,tweeties.City,Lat,Lng,Trend,Sentiment,PTweet1,PTweet2,PTweet3,PTweet4,PTweet5,NTweet1,NTweet2,NTweet3,NTweet4,NTweet5 FROM tweeties INNER JOIN cities ON cities.City = tweeties.City AND '$startTime' <= Timestamp AND '$endTime' >= Timestamp;";
 $tweetData = $connection->query($mariadbData);
 
 #This will make an array that contains the times of each tweet and some.
-$timeArray =  array();
-$dateInterval = new DateInterval('PT15M');
-$timeCursor = new DateTime($startTime);
-$timeCursor->add($dateInterval);
 if ($tweetData->num_rows > 0){
   $cities = array();
   while($row = $tweetData->fetch_assoc()) {
-    $rowTime = new DateTime($row["Timestamp"]);
-    if($rowTime > $timeCursor) {
-      $timeWindow = new TimeWindow;
-      $timeWindow->Time = date_format($timeCursor, 'Y-m-d H:i:s');
-      $timeWindow->Cities = $cities;
-      $cities = array();
-      while ($rowTime > $timeCursor) {
-	      $timeCursor->add($dateInterval);
-      }
-      array_push($timeArray, $timeWindow);
-    }
     $city = new City;
     $city->City = $row["City"];
     $city->Trend = $row["Trend"];
@@ -83,18 +67,11 @@ if ($tweetData->num_rows > 0){
     $city->NTweet5 = $row["NTweet5"];
     array_push($cities, $city);
   }
-  $timeWindow = new TimeWindow;
-  $timeWindow->Time = date_format($timeCursor, 'Y-m-d H:i:s');
-  $timeWindow->Cities = $cities;
-  array_push($timeArray, $timeWindow);
+  $jsonData = json_encode($cities);
+  echo $jsonData;
 } else {
   echo "Empty Set returned<br>";
 }
-
-
-$jsonData = json_encode($timeArray);
-
-echo $jsonData;
 
 $connection->close();
 
