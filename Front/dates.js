@@ -5,7 +5,7 @@ $(document).ready(function() {
       event.preventDefault();  // Do not run the default action
       var startTime = ($(':text[name="startTimeMessage"]').val()).replace(' ','%20');
       console.log(startTime)
-      $("#message").load("index.php?startTime="+startTime);
+      $("#message").load("getData.php?startTime="+startTime);
    });
 });
 
