@@ -43,15 +43,20 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 55em;
 }
 
+.cover-heading {
+  text-align: center;
+}
 
 /*
  * Header
  */
 .masthead {
   margin-bottom: 2rem;
+  padding: 10px;
+
 }
 
 .masthead-brand {

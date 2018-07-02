@@ -40,72 +40,87 @@
 
 
       <main role="main" class="inner cover">
-        <h1 class="cover-heading">Welcome. Let's explore.</h1>
+
+        <h1 class="cover-heading">Welcome. </h1>
+        <br>
         <!-- <h3> <a class="btn btn-lg btn-secondary" href="#map"> Go to map </a></h3> -->
 
         <div><br><br><br></div>
       </main>
 
-<div id="tweetFilter">
-  <form action="">
-    <fieldset>
-      <!--Keyword search box-->
-      <h4>Search by keyword:</h4><br>
-      <input type="text" name="keyword" placeholder="e.g. World Cup, SpaceX, John Travolta ..."><br><br>
-</fieldset>
-</form>
-</div>
+      <div class="row">
+        <div class="span2">
 
-      <div id="tweetFilter">
-        <form action="">
-          <fieldset>
-            <legend>Customize Map</legend>
+          <form class="form-horizontal">
 
-            <!--Dropdown button for cities-->
-            Filter by city:<br>
-            <div class="dropdown">
-              <button class="dropbtn">Cities</button>
-              <div class="dropdown-content">
-              <a href="#">Denver, CO</a>
-              <a href="#">New York City, NY</a>
-              <a href="#">Los Angeles, CA</a>
-              <a href="#">Houston, TX</a>
-              <a href="#">Chicago, IL</a>
+            <!-- <div id="tweetFilter">
+                <fieldset>
+                  !Keyword search box
+                  <h4>Search by keyword:</h4>
+                  <input type="text" name="keyword" placeholder="e.g. World Cup, SpaceX, John Travolta ..."><br><br>
+                </fieldset>
+            </div> -->
+
+            <div id="tweetFilter">
+              <!-- <form action=""> -->
+
+                <fieldset>
+                  <!--Keyword search box-->
+                  <h4>Search by keyword:</h4>
+                  <input type="text" name="keyword" placeholder="e.g. World Cup, SpaceX, John Travolta ..."><br><br>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Filter by sentiment</legend>
+                  <input type="radio" name="sentiment" value="veryPos">Very positive<br>
+                  <input type="radio" name="sentiment" value="mostlyPos">Mostly positive<br>
+                  <input type="radio" name="sentiment" value="slightlyPos">Slightly positive<br>
+                  <input type="radio" name="sentiment" value="Neutral">Neutral<br>
+                  <input type="radio" name="sentiment" value="slightlyNeg">Slightly negative<br>
+                  <input type="radio" name="sentiment" value="mostlyNeg">Mostly negative<br>
+                  <input type="radio" name="sentiment" value="veryNeg">Very negative<br>
+                  <!--Dropdown button for cities-->
+                  <!-- Filter by city:<br>
+                  <div class="dropdown">
+                    <button class="dropbtn">Cities</button>
+                    <div class="dropdown-content">
+                    <a href="#">Denver, CO</a>
+                    <a href="#">New York City, NY</a>
+                    <a href="#">Los Angeles, CA</a>
+                    <a href="#">Houston, TX</a>
+                    <a href="#">Chicago, IL</a>
+                  </div> -->
+                <!-- </div><br><br> -->
+                <br><br>
+                <input type="submit" value="Create Map">
+              </fieldset>
+            <!-- </form> -->
             </div>
-          </div><br><br>
-          Filter by sentiment:<br>
-          <input type="radio" name="sentiment" value="veryPos">Very positive<br>
-          <input type="radio" name="sentiment" value="mostlyPos">Mostly positive<br>
-          <input type="radio" name="sentiment" value="slightlyPos">Slightly positive<br>
-          <input type="radio" name="sentiment" value="Neutral">Neutral<br>
-          <input type="radio" name="sentiment" value="slightlyNeg">Slightly negative<br>
-          <input type="radio" name="sentiment" value="mostlyNeg">Mostly negative<br>
-          <input type="radio" name="sentiment" value="veryNeg">Very negative<br>
-          <br><br>
-          <input type="submit" value="Create Map">
-        </fieldset>
-      </form>
+
+        </form>
       </div>
 
-      <div>
-      <br><br>
-      <br><br>
-      <br><br>
+      <div class="span2">
+        <br>
+      </div>
+
+      <div class="span6 offset4">
+        <!--Map div-->
+        <div id="map">
+        </div>
+      </div>
+
     </div>
-      <!--Map div-->
-      <div id="map">
-      </div>
-
-      <div><br><br><br><br></div>
 
 
-      <br><br><br><br><br><br>
+
+
       <!-- <footer class="mastfoot mt-auto">
         <div class="inner">
           <p>Footer :)</p>
         </div>
       </footer> -->
-    </div>
+
 
 
 
