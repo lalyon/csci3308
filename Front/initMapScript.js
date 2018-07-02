@@ -111,7 +111,7 @@ function updateMap(data) {
 	for (var i = 0; i < data.length; i++) {
 		obj = data[i]
 		city = {
-			coords:{lat:obj["Lat"],lng:obj["Lng"]},
+			coords:{lat:Number(obj["Lat"]),Number(lng:obj["Lng"])},
 			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+obj["Sentiment"]+'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets</h3>'
 		}
 		addMarker(city,i*200);
