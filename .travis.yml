@@ -3,5 +3,7 @@ python:
   - '3.6'
 addons: 
   mariadb: '10.3.7'
+services:
+  - mysql
 script: python ./Tests/databaseCheck.py
 
