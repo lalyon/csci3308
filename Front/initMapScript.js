@@ -127,15 +127,14 @@ function updateMap(data) {
 		city = {
 			coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
 			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+ stringSentiment
-      +'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>',
-      weight: intSentiment
+      +'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>'
 		}
 
     var latLng = new google.maps.LatLng(Number(obj["Lat"]),Number(obj["Lng"]));
 
     var weightedLoc = {
 			location: latLng,
-			weight: intSentiment
+			weight: Number(obj["Sentiment"])
 		};
 
     heatmapData.push(weightedLoc);
@@ -148,7 +147,6 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     //gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
-    radius: '40px',
     opacity: 0.8
   });
 
