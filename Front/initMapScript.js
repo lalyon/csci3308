@@ -80,6 +80,7 @@ function addMarker(city, timeout){
 	}, timeout);
 }
 
+//ADD A CLEAR MARKERS FUNCTION !!!
 function updateMap(data) {
   //Parses JSON string after submit button is pressed
   data = JSON.parse(data);
@@ -130,9 +131,11 @@ function updateMap(data) {
       weight: intSentiment
 		}
 
+    var latLng = new google.maps.LatLng(Number(obj["Lat"]),Number(obj["Lng"]));
+  
     var weightedLoc = {
-			location: city.coords,
-			weight: city.weight
+			location: latLng,
+			weight: intSentiment
 		};
 
     heatmapData.push(weightedLoc);
@@ -145,6 +148,7 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
+    radius: '40px',
     opacity: 0.8
   });
 
