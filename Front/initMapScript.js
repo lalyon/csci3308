@@ -4,89 +4,77 @@ Populate map with default array of city markers.
 Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets
 */
 
-//Initialize default map, called when page is loaded
-
 var map;
 
+//Initialize default blank map, called when page is loaded
 function initMap() {
+	//Fancy custom map style
+  var mapStyle = [
+    {"elementType": "geometry", "stylers": [{"color": "#f5f5f5"}]},
+    {"elementType": "labels.icon", "stylers": [{"visibility": "off"}]},
+    {"elementType": "labels.text.fill", "stylers": [{"color": "#616161"}]},
+    {"elementType": "labels.text.stroke","stylers": [{"color": "#f5f5f5"}]},
+    {"featureType": "administrative.land_parcel", "stylers": [{"visibility": "off"}]},
+    {"featureType": "administrative.land_parcel", "elementType":"labels.text.fill", "stylers": [{"color": "#bdbdbd"}]},
+    {"featureType": "administrative.neighborhood","stylers": [{"visibility": "off"}]},
+    {"featureType": "poi", "elementType": "geometry","stylers": [{"color": "#eeeeee"}]},
+    {"featureType": "poi","elementType": "labels.text","stylers": [{"visibility": "off"}]},
+    {"featureType": "poi", "elementType": "labels.text.fill","stylers":[{"color": "#757575"}]},
+    {"featureType": "poi.park","elementType": "geometry","stylers": [{"color": "#e5e5e5"}]},
+    {"featureType": "poi.park","elementType": "labels.text.fill","stylers": [{
+     "color": "#9e9e9e"}]},
+    {"featureType": "road","stylers": [{"visibility": "off"}]},
+    {"featureType": "road", "elementType": "geometry","stylers": [{"color": "#ffffff"}]},
+    {"featureType": "road","elementType": "labels","stylers": [{"visibility":"off"
+    }]},
+    {"featureType": "road.arterial","elementType": "labels.text.fill","stylers": [
+    {"color": "#757575"}]},
+    {"featureType": "road.highway","elementType": "geometry","stylers": [{"color": "#dadada"}]},
+    {"featureType": "road.highway","elementType": "labels.text.fill","stylers": [{"color": "#616161"}]},
+    {"featureType": "road.local","elementType": "labels.text.fill","stylers": [
+    {"color": "#9e9e9e"}]},
+    {"featureType": "transit.line","elementType": "geometry","stylers": [{ "color": "#e5e5e5"}]},
+    {"featureType": "transit.station","elementType": "geometry","stylers": [{
+    "color": "#eeeeee"}]},
+    {"featureType": "water","elementType": "geometry","stylers": [{"color": "#c9c9c9"}]},
+    {"featureType": "water","elementType": "labels.text","stylers": [{"visibility": "off"}]},
+    {"featureType": "water","elementType": "labels.text.fill","stylers": [{
+    "color": "#9e9e9e"}]}
+  ];
 
+	//Map display options
+  var mapSettings = {
+    zoom: 4,
+    center: {lat:39.8283, lng:-98.5795},
+    disableDefaultUI:true,
+    zoomControl: false,
+    scrollwheel: false
+  };
+
+	var styledMap = new google.maps.StyledMapType(styles,{name:"StyledMap"});
 	map = new google.maps.Map(
-		document.getElementById('map'), {
-			zoom: 3,
-			center: {lat:39.8283, lng:-98.5795},
-			disableDefaultUI:true,
-			zoomControl: false,
-			scrollwheel: false
-		});
+		document.getElementById('map'), mapSettings);
 
-	// Populate map with array of default markers
-	var defaultCities = [
-		{
-			coords:{lat:40.7128,lng:-74.0060},
-			content:'<h3>New York City</h3><p>Sentiment score here </p><p>Trending:</p><h4>Click for top 5 tweets</h4>',
-			/*city: "new york",
-	sentiment: int,
-	trend: "asdf"*/
-		},
-		{
-			coords:{lat:34.0522,lng:-118.2437},
-			content:'<h2>Los Angeles</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-		},
-		{
-			coords:{lat:33.7490,lng:-84.3880},
-			content:'<h2>Atlanta</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-		},
-		{
-			coords:{lat:36.1627,lng:-86.7816},
-			content:'<h2>Nashville</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-		},
-		{
-			coords:{lat:39.7392,lng:-104.9903},
-			content:'<h2>Denver</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-		},
-		{
-			coords:{lat:36.1699,lng:-115.1398},
-			content:'<h2>Las Vegas</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-
-		},
-		{
-			coords:{lat:29.7604,lng:-95.3698},
-			content:'<h2>Houston</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-		},
-		{
-			coords:{lat:47.6062,lng:-122.3321},
-			content:'<h2>Seattle</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-		},
-		{
-			coords:{lat:41.8781,lng:-87.6298},
-			content:'<h2>Chicago</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-		},
-		{
-			coords:{lat:42.3601,lng:-71.0589},
-			content:'<h2>Boston</h2><p>Sentiment score here </p><p>Trending:</p><h3>Click for top 5 tweets</h3>'
-		},
-	];
-
-	//Could add condition for if (logged in), push custom city markers to marker array
-
-	//Drops markers on map sequentially
+	map.mapTypes.set('map_style', styledMap);
+	map.setMapTypeID('map_style');
 
 }
-function addMarker(props, timeout){
+
+function addMarker(city, timeout){
 	window.setTimeout(function(){
 		var marker = new google.maps.Marker({
-			position: props.coords,
+			position: city.coords,
 			map:map,
 			icon:{path:'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
-				fillColor:'#efe447',
+				fillColor:'#ffcc00',
 				fillOpacity: 1,
-				scale: 0.7
+				scale: 0.5
 			},
 			animation:google.maps.Animation.DROP
 		});
 
 		var infoWindow = new google.maps.InfoWindow({
-			content:props.content
+			content:city.content
 		});
 
 		marker.addListener('mouseover', function(){
@@ -105,17 +93,38 @@ function addMarker(props, timeout){
 }
 
 function updateMap(data) {
-	data = JSON.parse(data)
-	console.log(data)
-	cities = []
+	data = JSON.parse(data);
+	console.log(data);
+
+	var heatmapData = [];
+
+	//Using parsed data to populate heatmap array and add markers
 	for (var i = 0; i < data.length; i++) {
-		obj = data[i]
+		obj = data[i];
+		var weightedLocObj = {
+			location: new google.maps.LatLng(Number(obj["Lat"]), Number(obj["Lng"])),
+			weight: 1 + Number(obj["Sentiment"])
+		};
+
+		heatmapData.push(weightedLocObj);
+
 		city = {
 			coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
-			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+obj["Sentiment"]+'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets</h3>'
+			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+obj["Sentiment"]+'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>'
 		}
 		addMarker(city,i*200);
 	}
+
+	//Adds heatmap layer to map, sets options
+  var heatmap = new google.maps.visualization.HeatmapLayer({
+    data: heatmapData,
+    map: map,
+    gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
+    radius: '6px',
+    opacity: 0.8
+  });
+
+
 }
 
 //Opens side Tweet feed when pin is clicked
