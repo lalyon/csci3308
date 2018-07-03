@@ -19,7 +19,7 @@ class databaseTestCase(unittest.TestCase):
 		pass
 
 	def test_database(self):
-		#mariadb_connection = mariadb.connect(user="root", password="", database="csci33038")
+		#mariadb_connection = mariadb.connect(user="root", password="", database="csci3308")
 		mariadb_connection=0
 		self.assertFalse(mariadb_connection)
 
