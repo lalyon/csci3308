@@ -46,6 +46,8 @@ function initMap() {
 	map = new google.maps.Map(
 		document.getElementById('map'), mapSettings);
 
+  getStates();
+
 }
 
 function addMarker(city, timeout){
@@ -149,6 +151,12 @@ function updateMap(data) {
     //gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
     opacity: 0.8
   });
+
+}
+
+function getStates() {
+      // load US state outline polygons from a GeoJson file
+      map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/states.js', { idPropertyName: 'STATE' });
 
 }
 
