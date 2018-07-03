@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import mysql.connector as mariadb
+import MySQLdb as mariadb
 import unittest
 
 
