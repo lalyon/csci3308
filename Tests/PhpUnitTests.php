@@ -1,5 +1,5 @@
 <?php
-  include '../Front/getData';
+  include '../Front/getData.php';
   use PHPUnit\Framework\TestCase;
 
   final class getDataTest extends TestCase {
