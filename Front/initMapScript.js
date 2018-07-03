@@ -1,8 +1,7 @@
 /* Map opens centered on continental US
 Default Maps UI disabled
 Populate map with default array of city markers.
-Marker displays city sentiment analysis score on mouseover, clicking marker opens side menu for top 5 tweets
-Needs to be addressed still: mouseover info window for cities near edge of map, eg Seattle, shifts map off-center. Add re-centering function.
+Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets
 */
 
 //Initialize default map, called when page is loaded
@@ -10,6 +9,7 @@ Needs to be addressed still: mouseover info window for cities near edge of map, 
 var map;
 
 function initMap() {
+
 	map = new google.maps.Map(
 		document.getElementById('map'), {
 			zoom: 3,
