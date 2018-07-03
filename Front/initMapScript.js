@@ -90,7 +90,7 @@ function updateMap(data) {
 	for (var i = 0; i < data.length; i++) {
 		obj = data[i];
 
-    //Translating numerical sentiment score to words 
+    //Translating numerical sentiment score to words
     var intSentiment = 1 + Number(obj["Sentiment"]);
     var stringSentiment = "";
 
@@ -122,32 +122,31 @@ function updateMap(data) {
         stringSentiment = "Very positive";
       }
 
-    /*var weightedLocObj = {
-			location: new google.maps.LatLng(Number(obj["Lat"]), Number(obj["Lng"])),
-			weight: 1 + Number(obj["Sentiment"])
-		};
-
-		heatmapData.push(weightedLocObj);
-    */
-
 		city = {
 			coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
 			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+stringSentiment
       +'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>'
 		}
-		addMarker(city,i*80);
+
+    var latLng = new google.maps.LatLng(city.coords);
+    var weightedLoc = {
+			location: latLng,
+			weight: intSentiment)
+		};
+
+    heatmapData.push(weightedLoc);
+
+    addMarker(city,i*80);
 	}
 
 	//Adds heatmap layer to map, sets options
-  /*var heatmap = new google.maps.visualization.HeatmapLayer({
+  var heatmap = new google.maps.visualization.HeatmapLayer({
     data: heatmapData,
     map: map,
     gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
     radius: '10px',
     opacity: 0.8
   });
-
-  heatmap.setMap(map);*/
 
 }
 
