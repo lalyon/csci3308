@@ -128,7 +128,7 @@ function updateMap(data) {
       +'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>'
 		}
 
-    var latLng = new google.maps.LatLng(city.coords);
+    var latLng = new google.maps.LatLng(Number(obj["Lat"], Number(obj["Lng"]));
     var weightedLoc = {
 			location: latLng,
 			weight: intSentiment)
