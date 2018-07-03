@@ -1,6 +1,7 @@
 language: python
 python:
   - '3.6'
-install: pip install mariadb-server
+addons: 
+  mariadb: '10.3.7'
 script: python ./Tests/databaseCheck.py
 
