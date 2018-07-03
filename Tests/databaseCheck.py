@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#import MySQLdb1 as mariadb
+import mysql.connector as mariadb
 import unittest
 
 
@@ -19,8 +19,8 @@ class databaseTestCase(unittest.TestCase):
 		pass
 
 	def test_database(self):
-		#mariadb_connection = mariadb.connect(user="root", password="", database="csci3308")
-		mariadb_connection=0
+		mariadb_connection = mariadb.connect(user="root", password="", database="csci3308")
+		#mariadb_connection=0
 		self.assertFalse(mariadb_connection)
 
 if __name__ == '__main__':
