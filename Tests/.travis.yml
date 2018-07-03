@@ -3,7 +3,4 @@ python:
 -"3.6"
 script:
 - python ./databaseCheck.py
-# blocklist
-branches:
-only:
-- testing
+
