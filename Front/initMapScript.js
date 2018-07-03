@@ -135,7 +135,7 @@ function updateMap(data) {
 
     var weightedLoc = {
 			location: latLng,
-			weight: Number(obj["Sentiment"])
+			weight:1 + Number(obj["Sentiment"])
 		};
 
     heatmapData.push(weightedLoc);
