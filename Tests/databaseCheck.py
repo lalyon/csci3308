@@ -24,4 +24,4 @@ class databaseTestCase(unittest.TestCase):
 		self.assertFalse(mariadb_connection)
 
 if __name__ == '__main__':
-	unnittest.main()
+	unittest.main()
