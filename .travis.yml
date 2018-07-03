@@ -4,7 +4,6 @@ python:
 addons: 
   mariadb: '10.3.7'
 install: 
-  - pip3 install MySQL-python
   - pip3 install mysql-connector-python
 script: python ./Tests/databaseCheck.py
 
