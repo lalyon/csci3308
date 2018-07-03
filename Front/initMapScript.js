@@ -81,7 +81,8 @@ function addMarker(city, timeout){
 }
 
 function updateMap(data) {
-	data = JSON.parse(data);
+  //Parses JSON string after submit button is pressed
+  data = JSON.parse(data);
 	console.log(data);
 
 	var heatmapData = [];
@@ -124,14 +125,14 @@ function updateMap(data) {
 
 		city = {
 			coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
-			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+stringSentiment
-      +'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>'
+			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+ stringSentiment
+      +'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>',
+      weight: intSentiment
 		}
 
-    var latLng = new google.maps.LatLng(Number(obj["Lat"], Number(obj["Lng"]));
     var weightedLoc = {
-			location: latLng,
-			weight: intSentiment)
+			location: city.coords,
+			weight: city.weight
 		};
 
     heatmapData.push(weightedLoc);
