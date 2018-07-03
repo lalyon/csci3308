@@ -49,14 +49,12 @@ function initMap() {
     disableDefaultUI:true,
     zoomControl: false,
     scrollwheel: false
+    styles: mapStyle;
   };
 
-	var styledMap = new google.maps.StyledMapType(styles,{name:"StyledMap"});
+
 	map = new google.maps.Map(
 		document.getElementById('map'), mapSettings);
-
-	map.mapTypes.set('map_style', styledMap);
-	map.setMapTypeID('map_style');
 
 }
 
