@@ -20,6 +20,23 @@
       $endTime = "2018-07-01 06:20:15";
       $tweetWindow = getData($startTime,$endTime);
       $jsonTweets = json_decode($tweetWindow, true);
+      for ($i = 0; $i < count($jsonTweets); $i++) {
+	      $this->assertNotNull($jsonTweets[i]->{'Name'});
+	      $this->assertNotNull($jsonTweets[i]->{'Trend'});
+	      $this->assertNotNull($jsonTweets[i]->{'Lat'});
+	      $this->assertNotNull($jsonTweets[i]->{'Lng'});
+	      $this->assertNotNull($jsonTweets[i]->{'Sentiment'});
+	      $this->assertNotNull($jsonTweets[i]->{'PTweet1'});
+	      $this->assertNotNull($jsonTweets[i]->{'PTweet2'});
+	      $this->assertNotNull($jsonTweets[i]->{'PTweet3'});
+	      $this->assertNotNull($jsonTweets[i]->{'PTweet4'});
+	      $this->assertNotNull($jsonTweets[i]->{'PTweet5'});
+	      $this->assertNotNull($jsonTweets[i]->{'NTweet1'});
+	      $this->assertNotNull($jsonTweets[i]->{'NTweet2'});
+	      $this->assertNotNull($jsonTweets[i]->{'NTweet3'});
+	      $this->assertNotNull($jsonTweets[i]->{'NTweet4'});
+	      $this->assertNotNull($jsonTweets[i]->{'NTweet5'});
+      }
       $this->assertGreaterThan(15, count($jsonTweets));
     }
   }
