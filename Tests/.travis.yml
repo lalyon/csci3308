@@ -5,7 +5,7 @@ script:
 -pytest
 # blocklist
 branches:
-	except:
-	- master
-	only:
-	- testing
+except:
+- master
+only:
+- testing
