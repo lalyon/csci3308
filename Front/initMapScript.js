@@ -89,22 +89,57 @@ function updateMap(data) {
 	//Using parsed data to populate heatmap array and add markers
 	for (var i = 0; i < data.length; i++) {
 		obj = data[i];
-		var weightedLocObj = {
+
+    //Translating numerical sentiment score to words 
+    var intSentiment = 1 + Number(obj["Sentiment"]);
+    var stringSentiment = "";
+
+    if(intSentiment <= 0.286){
+        stringSentiment = "Very negative";
+      }
+
+      else if(intSentiment > 0.286 && intSentiment <= 0.572){
+        stringSentiment = "Mostly negative";
+      }
+
+      else if(intSentiment > 0.572 && intSentiment <= 0.858){
+        stringSentiment = "Slightly negative";
+      }
+
+      else if(intSentiment > 0.858 && intSentiment <= 1.144){
+        stringSentiment = "Neutral";
+      }
+
+      else if(intSentiment > 1.144 && intSentiment <= 1.43){
+        stringSentiment = "Slightly positive";
+      }
+
+      else if(intSentiment > 1.43 && intSentiment <= 1.716){
+        stringSentiment = "Mostly positive";
+      }
+
+      else{
+        stringSentiment = "Very positive";
+      }
+
+    /*var weightedLocObj = {
 			location: new google.maps.LatLng(Number(obj["Lat"]), Number(obj["Lng"])),
 			weight: 1 + Number(obj["Sentiment"])
 		};
 
 		heatmapData.push(weightedLocObj);
+    */
 
 		city = {
 			coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
-			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+obj["Sentiment"]+'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>'
+			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+stringSentiment
+      +'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>'
 		}
-		addMarker(city,i*150);
+		addMarker(city,i*80);
 	}
 
 	//Adds heatmap layer to map, sets options
-  var heatmap = new google.maps.visualization.HeatmapLayer({
+  /*var heatmap = new google.maps.visualization.HeatmapLayer({
     data: heatmapData,
     map: map,
     gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
@@ -112,7 +147,7 @@ function updateMap(data) {
     opacity: 0.8
   });
 
-  heatmap.setMap(map);
+  heatmap.setMap(map);*/
 
 }
 
