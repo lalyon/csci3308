@@ -145,7 +145,6 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
-    radius: '10px',
     opacity: 0.8
   });
 
