@@ -1,8 +1,26 @@
 #!/usr/bin/python3
 import mysql.connector as mariadb
+import unittest
 
-mariadb_connection = mariadb.connect(user="root", password="", database="csci33038")
-if !maridb_connection:
-	print "Database exists"
-else:
-	print "Database DNE"
+
+class databaseTestCase(unittest.TestCase):
+	@classmethod
+	def setUpClass(cls):
+		pass
+
+	@classmethod
+	def tearDownClass(cls):
+		pass
+
+	def setUp(self):
+		pass
+
+	def tearDown(self):
+		pass
+
+	def test_database(self):
+		mariadb_connection = mariadb.connect(user="root", password="", database="csci33038")
+		self.assertFalse(mariadb_connection)
+
+if __name__ == '__main__':
+	unnittest.main()
