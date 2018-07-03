@@ -1,5 +1,6 @@
 language: python
 python:
   - '3.6'
+install: pip install MariaDB
 script: python ./Tests/databaseCheck.py
 
