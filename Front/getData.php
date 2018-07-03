@@ -23,8 +23,7 @@ function getData($startTime, $endTime){
 	$serverName = "localhost";
 	$userName = "root";
 	$password = "";
-	$database = "csci3308";
-
+	$database = "csci3308"; 
 	#This creates a connection
 	$connection = new mysqli($serverName, $userName, $password, $database);
 
@@ -60,9 +59,9 @@ function getData($startTime, $endTime){
 			array_push($cities, $city);
 		}
 		$jsonData = json_encode($cities);
-		echo $jsonData;
+		return $jsonData;
 	} else {
-		echo "Empty Set returned<br>";
+		return "Empty Set returned<br>";
 	}
 	$connection->close();
 }
@@ -74,6 +73,6 @@ if (strlen($startTime)) {
 	$startTimeObj = new DateTime($startTime);
 	$startTimeObj->sub($dateInterval);
 	$startTime = date_format($startTimeObj, 'Y-m-d H:i:s');
-	getData($startTime,$endTime);
+	echo getData($startTime,$endTime);
 }
 ?>
