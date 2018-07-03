@@ -1,5 +1,5 @@
 language: python
 python:
   - '3.6'
-script: python /Tests/databaseCheck.py
+script: python ./Tests/databaseCheck.py
 
