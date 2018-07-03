@@ -48,8 +48,8 @@ function initMap() {
     center: {lat:39.8283, lng:-98.5795},
     disableDefaultUI:true,
     zoomControl: false,
-    scrollwheel: false
-    styles: mapStyle;
+    scrollwheel: false,
+    styles: mapStyle
   };
 
 
