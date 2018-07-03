@@ -46,7 +46,6 @@ function initMap() {
 	map = new google.maps.Map(
 		document.getElementById('map'), mapSettings);
 
-  getStates();
 
 }
 
@@ -129,7 +128,7 @@ function updateMap(data) {
 		city = {
 			coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
 			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+ stringSentiment
-      +'</p><p>Trending: '+obj["Trend"]+'</p><h3>Click for top 5 tweets!</h3>'
+      +'</p><p>Trending: '+obj["Trend"]+'</p><h4>Click for top 5 tweets!</h4>'
 		}
 
     var latLng = new google.maps.LatLng(Number(obj["Lat"]),Number(obj["Lng"]));
@@ -154,11 +153,6 @@ function updateMap(data) {
 
 }
 
-function getStates() {
-      // load US state outline polygons from a GeoJson file
-      map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/states.js', { idPropertyName: 'STATE' });
-
-}
 
 //Opens side Tweet feed when pin is clicked
 function openTopTweets(){
