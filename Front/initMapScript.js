@@ -153,6 +153,9 @@ function updateMap(data) {
 
 }
 
+function clearMarkers(){
+  setMapOnAll(null);
+}
 
 //Opens side Tweet feed when pin is clicked
 function openTopTweets(){
