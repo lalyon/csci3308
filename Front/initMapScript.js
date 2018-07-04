@@ -36,7 +36,7 @@ function initMap() {
 
 	//Map display options
   var mapSettings = {
-    zoom: 5,
+    zoom: 3,
     center: {lat:39.8283, lng:-98.5795},
     disableDefaultUI:true,
     zoomControl: false,
