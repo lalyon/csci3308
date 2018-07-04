@@ -3,8 +3,7 @@
 /*Header (duh)*/
 .header{
 	text-align: center;
-	display: flex;
-	align-items: center;
+	padding: 20px;
 }
 
 html {
