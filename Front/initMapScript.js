@@ -147,9 +147,9 @@ function updateMap(data) {
   var heatmap = new google.maps.visualization.HeatmapLayer({
     data: heatmapData,
     map: map,
-    //gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
+    gradient:['#FF1493', '#FF00FF', '#9400D3', '#00CED1', '#1E90FF'],
     opacity: 0.8,
-    radius: 30 
+    radius: 30
   });
 
 }
