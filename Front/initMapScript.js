@@ -84,7 +84,6 @@ function addMarker(city, timeout){
 //ADD A CLEAR MARKERS FUNCTION !!!
 function updateMap(data) {
 
-  initMap();
   //Parses JSON string after submit button is pressed
   data = JSON.parse(data);
 	console.log(data);
