@@ -134,3 +134,8 @@ input[type=text]{
 	background-color: #80bfff;
 	color:#f0f0f5;
 }
+
+.vcenter {
+	display: flex;
+	align-items: center;
+}
