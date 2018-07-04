@@ -3,6 +3,8 @@
 /*Header (duh)*/
 .header{
 	text-align: center;
+	display: flex;
+	align-items: center;
 }
 
 html {
@@ -132,9 +134,4 @@ input[type=text]{
 #navbar a.active{
 	background-color: #80bfff;
 	color:#f0f0f5;
-}
-
-.vcenter {
-	display: flex;
-	align-items: center;
 }
