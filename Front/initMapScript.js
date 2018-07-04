@@ -133,10 +133,10 @@ function updateMap(data) {
 		}
 
     var latLng = new google.maps.LatLng(Number(obj["Lat"]),Number(obj["Lng"]));
-
+    var weight = intSentiment*3;
     var weightedLoc = {
 			location: latLng,
-			weight:intSentiment
+			weight:weight
 		};
 
     heatmapData.push(weightedLoc);
