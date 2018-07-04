@@ -34,7 +34,7 @@ function initMap() {
 
 	//Map display options
   var mapSettings = {
-    zoom: 4,
+    zoom: 5,
     center: {lat:39.8283, lng:-98.5795},
     disableDefaultUI:true,
     zoomControl: false,
@@ -149,7 +149,7 @@ function updateMap(data) {
     map: map,
     //gradient:['#ea1e73', '#d03b9e', '#bc49af', '#a556bd', '#6c6acc', '#4871cd', '#0b76ca'],
     opacity: 0.8,
-    radius: 20 
+    radius: 30 
   });
 
 }
