@@ -2,131 +2,126 @@
 
 /*Header (duh)*/
 .header{
-  text-align: center;
-  padding:80px;
+	text-align: center;
+	padding:80px;
 }
 
 /*Tweet stream side bar*/
 .sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: #b4ebf7;
-  overflow-x: hidden;
-  transition: 0.5s;
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	background-color: #b4ebf7;
+	overflow-x: hidden;
+	transition: 0.5s;
 
 }
 
 /*Content in tweet stream side bar*/
 .sidenav p {
-  text-decoration: none;
-  font-size: 25px;
-  color: #c2d2ed;
-  display: block;
-  transition: 0.3s;
-  padding-left: 20px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #c2d2ed;
+	display: block;
+	transition: 0.3s;
+	padding-left: 20px;
 }
 
 /*Links in tweet stream side bar*/
 .sidenav a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 /*Close button for tweet stream*/
 .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
 }
 
 /*Search/filter form div*/
 #tweetFilter{
-  max-height: 100px;
-  margin-left: 30px;
-  float: left;
+	max-height: 100px;
+	margin-left: 30px;
+	float: left;
 }
 
 fieldset{
-  margin-top: 24px;
-  width:100%;
-  height: 10%;
+	margin-top: 24px;
+	width:100%;
+	height: 10%;
 }
 
 input[type=text]{
-  border-radius: 6px;
-  padding:8px;
-  width: 200px;
+	border-radius: 6px;
+	padding:8px;
+	width: 200px;
 }
 
 .dropbtn {
-  padding:8px;
-  border:1px solid;
-  width:220px;
+	padding:8px;
+	border:1px solid;
+	width:220px;
 }
 
 .dropdown{
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .dropdown-content{
-  display: none;
-  position: absolute;
-  z-index:1;
-  min-width: 200px;
+	display: none;
+	position: absolute;
+	z-index:1;
+	min-width: 200px;
 }
 
 .dropdown-content a{
-  padding: 10px;
-  text-decoration: none;
-  display: block;
+	padding: 10px;
+	text-decoration: none;
+	display: block;
 }
 
 .dropdown:hover .dropdown-content{
-  display: block;
+	display: block;
 }
 
 /*Map div*/
 #map{
-  min-width: 500px;
-  min-height: 400px;
-  margin-top: 20px;
-  margin-right: 3px;
-  margin-left: 100px;
-  padding: 20px;
-  float: left;
+	width: 100%;
+	height: 100%;
 }
 
 /*Top nav bar div*/
 #navbar{
-  background-color: #1a8cff;
-  overflow:auto;
-  max-height: 80px;
+	background-color: #1a8cff;
+	overflow:auto;
+	max-height: 80px;
 }
 
 /*Links in top nav bar*/
 #navbar a{
-  float:left;
-  display: block;
-  color: #29293d;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size:1.1em;
-  font-weight: bolder;
+	float:left;
+	display: block;
+	color: #29293d;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size:1.1em;
+	font-weight: bolder;
 }
 
 #navbar a:hover{
-  background-color: #4da6ff;
+	background-color: #4da6ff;
 }
 
 #navbar a.active{
-  background-color: #80bfff;
-  color:#f0f0f5;
+	background-color: #80bfff;
+	color:#f0f0f5;
 }
