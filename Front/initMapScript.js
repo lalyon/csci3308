@@ -5,6 +5,7 @@ Marker displays info window on mouseover, showing city sentiment and trending to
 */
 
 var map;
+var markers = [];
 
 //Initialize default blank map, called when page is loaded
 function initMap() {
@@ -62,6 +63,8 @@ function addMarker(city, timeout){
 			animation:google.maps.Animation.DROP
 		});
 
+    markers.push(marker);
+
 		var infoWindow = new google.maps.InfoWindow({
 			content:city.content
 		});
@@ -83,12 +86,13 @@ function addMarker(city, timeout){
 
 //ADD A CLEAR MARKERS FUNCTION !!!
 function updateMap(data) {
-
+  clearMarkers();
   //Parses JSON string after submit button is pressed
   data = JSON.parse(data);
 	console.log(data);
 
 	var heatmapData = [];
+
 
 	//Using parsed data to populate heatmap array and add markers
 	for (var i = 0; i < data.length; i++) {
@@ -151,9 +155,16 @@ function updateMap(data) {
     opacity: 0.8,
     radius: 60
   });
-
 }
 
+//Removes markers, called when creating a new map 
+function clearMarkers(){
+  for(var i = 0; i < markers.length; i++){
+    markers[i].setMap(null);
+  }
+
+  markers=[];
+}
 
 //Opens side Tweet feed when pin is clicked
 function openTopTweets(){
