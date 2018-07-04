@@ -84,7 +84,7 @@ function addMarker(city, timeout){
 	}, timeout);
 }
 
-//ADD A CLEAR MARKERS FUNCTION !!!
+
 function updateMap(data) {
   clearMarkers();
   //Parses JSON string after submit button is pressed
@@ -157,13 +157,14 @@ function updateMap(data) {
   });
 }
 
-//Removes markers, called when creating a new map 
+//Removes markers, called when creating a new map
 function clearMarkers(){
   for(var i = 0; i < markers.length; i++){
     markers[i].setMap(null);
   }
 
-  markers=[];
+  markers = [];
+  heatmapData = [];
 }
 
 //Opens side Tweet feed when pin is clicked
