@@ -6,6 +6,7 @@ Marker displays info window on mouseover, showing city sentiment and trending to
 
 var map, heatmap;
 var markers = [];
+var heatmapData = [];
 
 //Initialize default blank map, called when page is loaded
 function initMap() {
@@ -92,9 +93,6 @@ function updateMap(data) {
   //Parses JSON string after submit button is pressed
   data = JSON.parse(data);
 	console.log(data);
-
-	var heatmapData = [];
-
 
 	//Using parsed data to populate heatmap array and add markers
 	for (var i = 0; i < data.length; i++) {
