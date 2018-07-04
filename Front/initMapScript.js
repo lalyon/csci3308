@@ -153,7 +153,7 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     opacity: 0.8,
-    radius: 60
+    radius: 40
   });
 }
 
@@ -164,9 +164,8 @@ function clearMarkers(){
   }
 
   heatmap.setMap(null);
-
   markers = [];
-  heatmapData = [];
+
 }
 
 //Opens side Tweet feed when pin is clicked
