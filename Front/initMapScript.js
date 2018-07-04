@@ -4,7 +4,7 @@ Populate map with default array of city markers.
 Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets
 */
 
-var map;
+var map, heatmap;
 var markers = [];
 
 //Initialize default blank map, called when page is loaded
@@ -151,7 +151,7 @@ function updateMap(data) {
 	}
 
 	//Adds heatmap layer to map, sets options
-  var heatmap = new google.maps.visualization.HeatmapLayer({
+  heatmap = new google.maps.visualization.HeatmapLayer({
     data: heatmapData,
     map: map,
     opacity: 0.8,
@@ -165,7 +165,7 @@ function clearMarkers(){
     markers[i].setMap(null);
   }
 
-  //heatmap.setMap(null);
+  heatmap.setMap(null);
   markers = [];
 
 }
