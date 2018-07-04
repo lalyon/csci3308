@@ -84,7 +84,7 @@ function addMarker(city, timeout){
 //ADD A CLEAR MARKERS FUNCTION !!!
 function updateMap(data) {
 
-  clearMarkers();
+  initMap();
   //Parses JSON string after submit button is pressed
   data = JSON.parse(data);
 	console.log(data);
@@ -155,9 +155,6 @@ function updateMap(data) {
 
 }
 
-function clearMarkers(){
-  setMapOnAll(null);
-}
 
 //Opens side Tweet feed when pin is clicked
 function openTopTweets(){
