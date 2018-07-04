@@ -22,97 +22,47 @@
 	</head>
 
 	<body class="text-center" data-gr-c-s-loaded="true">
-
-		<div class="cover-container d-flex h-100 p-3 mx-auto flex-column" style="width: 100%">
-			<header class="masthead mb-auto">
-				<div class="inner">
-					<h3 class="masthead-brand">Twitter Map</h3>
-					<nav class="nav nav-masthead justify-content-center">
-						<a class="nav-link active" href="#">Home</a>
-						<a class="nav-link" href="#faq">Map</a>
-					</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 header">
+					<h3 class="aligning">Twitter Map</h3>
 				</div>
-			</header>
+				<div class="col-md-4 header">
+				<h2 class="aligning">Team S&#x1f4a9;mple</h2>
+				</div>
+				<div class="col-md-4 header">
+					<form class="" method="GET" action="">
+						<label>Time:<input type="text" name = "startTimeMessage" placeholder="e.g. 2018-06-30 00:00:00"></label>
+						<input type="submit"> 
+					</form>
+				</div>
+			</div>
 
 			<!--Tweet sidenav opens when map pin is clicked-->
 			<div id="tweetStream" class ="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeTopTweets()">&times;</a>
 				<p>Tweets go here!</p>
 			</div>
-
-
-			<main role="main" class="inner cover">
-
-			<h1 class="cover-heading">Welcome. </h1>
-			<br>
-
-			<div><br><br><br></div>
-			</main>
-
-			<div class="row">
-				<div class="span2">
-					<form method="GET">
-						<label>Time:<input type="text" name = "startTimeMessage" placeholder="e.g. 2018-06-30 00:00:00"></label>
-						<br>
-						<input type="submit">
-					</form>
-					<form class="form-horizontal">
-
-
-						<div id="tweetFilter">
-
-							<fieldset>
-								<!--Keyword search box-->
-								<h4>Search by keyword:</h4>
-								<input type="text" name="keyword" placeholder="e.g. World Cup, SpaceX, John Travolta ..."><br><br>
-							</fieldset>
-
-							<fieldset>
-								<legend>Filter by sentiment</legend>
-								<input type="radio" name="sentiment" value="veryPos">Very positive<br>
-								<input type="radio" name="sentiment" value="mostlyPos">Mostly positive<br>
-								<input type="radio" name="sentiment" value="slightlyPos">Slightly positive<br>
-								<input type="radio" name="sentiment" value="Neutral">Neutral<br>
-								<input type="radio" name="sentiment" value="slightlyNeg">Slightly negative<br>
-								<input type="radio" name="sentiment" value="mostlyNeg">Mostly negative<br>
-								<input type="radio" name="sentiment" value="veryNeg">Very negative<br>
-								<!--Dropdown button for cities-->
-								<br><br>
-								<input type="submit" value="Create Map">
-							</fieldset>
-							<!-- </form> -->
-						</div>
-
-						</form>
+			<div class="row" style="height:100%">
+				<!--Map div-->
+				<div id="map">
 				</div>
-
-				<div class="span2">
-					<br>
-				</div>
-
-				<div class="span6 offset4">
-					<!--Map div-->
-					<div id="map">
-					</div>
-				</div>
-
 			</div>
-
-			<!-- Initialize default map -->
-			<script src="initMapScript.js"></script>
-
-			<!--Connect to Google Maps API-->
-			<script async defer
-	   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPoO1nFkhEmg8GVkBjvinwpdxEyGJd9qw&libraries=visualization&callback=initMap">
-			</script>
-
-			<!-- Bootstrap core JavaScript
-	   ================================================== -->
-	   <!-- Placed at the end of the document so the pages load faster -->
-	   <script src="popper.js"></script>
-	   <script src="bootstrap.js"></script>
-
 		</div>
+
+		<!-- Initialize default map -->
+		<script src="initMapScript.js"></script>
+
+		<!--Connect to Google Maps API-->
+		<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPoO1nFkhEmg8GVkBjvinwpdxEyGJd9qw&libraries=visualization&callback=initMap">
+		</script>
+
+		<!-- Bootstrap core JavaScript
+	  ================================================== -->
+	  <!-- Placed at the end of the document so the pages load faster -->
+	  <script src="popper.js"></script>
+	  <script src="bootstrap.js"></script>
 	</body>
 	<p hidden id="message"></p>
 </html>
