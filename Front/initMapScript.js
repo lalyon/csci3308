@@ -44,12 +44,11 @@ function initMap() {
     styles: mapStyle
   };
 
-
 	map = new google.maps.Map(
 		document.getElementById('map'), mapSettings);
 
-
 }
+
 
 function addMarker(city, timeout){
 	window.setTimeout(function(){
