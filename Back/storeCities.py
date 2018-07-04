@@ -3,6 +3,7 @@ import mysql.connector as mariadb
 mariadb_connection = mariadb.connect(user = 'root', password = '', database='csci3308')
 cursor = mariadb_connection.cursor()
 
+# Removes Lat,Lng from tweeties and creates a separate table.
 cursor.execute('SELECT City, Lat, Lng FROM tweeties;')
 tweets = cursor.fetchall()
 for tweet in tweets:

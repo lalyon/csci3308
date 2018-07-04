@@ -1,5 +1,4 @@
 import tweepy
-#import googlemaps
 from textblob import TextBlob
 import sys
 import json
@@ -20,10 +19,6 @@ auth = tweepy.AppAuthHandler(
         secrets['twitter']['consumer_key'],
         secrets['twitter']['consumer_secret']
 )
-#auth.set_access_token(
-#        secrets['twitter']['access_token'],
-#        secrets['twitter']['access_token_secret']
-#)
 
 # Get twitter api wrapper
 api = tweepy.API(
@@ -31,9 +26,6 @@ api = tweepy.API(
     wait_on_rate_limit = True,
     wait_on_rate_limit_notify = True
 )
-
-# Get googlemaps api wrapper
-#gmaps = googlemaps.Client(key = secrets['google']['api_key'])
 
 # Get list of places with trend data available. Trim it to 20 cities in the US
 trendPlaces = api.trends_available()
@@ -46,13 +38,12 @@ trendPlaces = random.sample(trendPlaces,nPlaces)
 
 # Iterate through each place with data
 for trendPlace in trendPlaces:
-    print("City")
+    print("Success")
     # Extract the WOEID and city name
     woeid = trendPlace['woeid']
     city = trendPlace['name']
 
     # Get a latitude / longitude string for geocode searching with google
-    #location = gmaps.geocode(city)[0]['geometry']['location']
     queryCity = cursor.execute("SELECT Lat,Lng FROM cities WHERE City = '" + city+"';")
     location = cursor.fetchone()
     geocode = str(location[0]) + "," + str(location[1]) + ",10mi"
@@ -99,9 +90,6 @@ for trendPlace in trendPlaces:
 
     # Magic
     blob = TextBlob(tweetTexts)
-
-    # Print summary of trend for this city, with sentiment analysis
-    #print(trend['name'] + " in " + city + " | Analysis: " + str(blob.sentiment))
 
     # insert stuff into database
     cursor.execute("INSERT INTO tweeties (City,Trend,Sentiment,PTweet1,PTweet2,PTweet3,PTweet4,PTweet5,NTweet1,NTweet2,NTweet3,NTweet4,NTweet5) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(city,trend['name'],str(blob.sentiment.polarity),mostPositive[0][1],mostPositive[1][1],mostPositive[2][1],mostPositive[3][1],mostPositive[4][1],mostNegative[0][1],mostNegative[1][1],mostNegative[2][1],mostNegative[3][1],mostNegative[4][1]))
