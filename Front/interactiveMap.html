@@ -26,10 +26,10 @@
 		<div class="cover-container d-flex h-100 p-3 mx-auto flex-column" style="width: 100%">
 			<div class="page-header">
 				<h3 class="masthead-brand">Twitter Map</h3>
-				<nav class="nav nav-masthead justify-content-center">
-					<a class="nav-link active" href="#">Home</a>
-					<a class="nav-link" href="#faq">Map</a>
-				</nav>
+				<form method="GET" action="">
+					<label>Time:<input type="text" name = "startTimeMessage" placeholder="e.g. 2018-06-30 00:00:00"></label>
+					<input type="submit"> 
+				</form>
 			</div>
 
 			<!--Tweet sidenav opens when map pin is clicked-->
@@ -48,13 +48,6 @@
 			</main>
 
 			<div class="row">
-				<div class="span2">
-					<form method="GET" action="">
-						<label>Time:<input type="text" name = "startTimeMessage" placeholder="e.g. 2018-06-30 00:00:00"></label>
-						<br>
-						<input type="submit"> 
-					</form>
-				</div>
 
 				<div class="span1">
 					<br>
