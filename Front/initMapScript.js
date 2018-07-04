@@ -133,7 +133,7 @@ function updateMap(data) {
 		}
 
     var latLng = new google.maps.LatLng(Number(obj["Lat"]),Number(obj["Lng"]));
-    var weight = intSentiment*3;
+    var weight = intSentiment*7;
     var weightedLoc = {
 			location: latLng,
 			weight:weight
@@ -149,7 +149,7 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     opacity: 0.8,
-    radius: 50
+    radius: 60
   });
 
 }
