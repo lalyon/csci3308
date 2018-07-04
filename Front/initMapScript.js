@@ -86,7 +86,9 @@ function addMarker(city, timeout){
 
 
 function updateMap(data) {
+
   clearMarkers();
+
   //Parses JSON string after submit button is pressed
   data = JSON.parse(data);
 	console.log(data);
@@ -163,7 +165,7 @@ function clearMarkers(){
     markers[i].setMap(null);
   }
 
-  heatmap.setMap(null);
+  //heatmap.setMap(null);
   markers = [];
 
 }
