@@ -98,6 +98,11 @@ input[type=text]{
 	display: inline-flex;
 }
 
+.map-row {
+	height: 100%;
+	display: inline-flex;
+}
+
 /*Top nav bar div*/
 #navbar{
 	background-color: #1a8cff;
