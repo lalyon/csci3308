@@ -49,7 +49,7 @@ function initMap() {
 
 }
 
-
+//Adds marker to map, sets location, icon image, animation, info windows
 function addMarker(city, timeout){
 	window.setTimeout(function(){
 		var marker = new google.maps.Marker({
@@ -84,7 +84,7 @@ function addMarker(city, timeout){
 	}, timeout);
 }
 
-
+//Called when form is submitted, clears previous markers, sets heatmap data, adds heatmap layer
 function updateMap(data) {
 
   clearMarkers();
@@ -151,8 +151,7 @@ function updateMap(data) {
   heatmap = new google.maps.visualization.HeatmapLayer({
     data: heatmapData,
     map: map,
-    opacity: 0.8,
-    radius: 40
+    opacity: 0.8
   });
 }
 
