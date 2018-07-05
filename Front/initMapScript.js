@@ -80,8 +80,7 @@ function addMarker(city, timeout){
 		});
 
 		marker.addListener('click', function(){
-      var cityName = marker.getLabel();
-      openTopTweets(cityName);
+      openTopTweets(marker, marker.getLabel());
 		});
 
 	}, timeout);
@@ -181,13 +180,13 @@ function clearMarkers(){
 }
 
 //Opens side Tweet feed when pin is clicked
-function openTopTweets(cityName){
+function openTopTweets(marker, cityName){
 	document.getElementById("tweetStream").style.width = "400px";
 	document.getElementById("main").style.marginRight = "400px";
 	document.body.style.backgroundColor = "#df80ff";
 
   //finding city to get its tweets, displaying tweets in sidenav
-  var city = cities.find(function(city){return city.name === cityName});
+  var city = cities.find(function(city){return city.name === cityName;});
 
   document.getElementById("cityname").innerHTML = city.name;
 
