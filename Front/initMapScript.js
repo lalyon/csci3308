@@ -166,7 +166,8 @@ function updateMap(data) {
   heatmap = new google.maps.visualization.HeatmapLayer({
     data: heatmapData,
     map: map,
-    opacity: 0.8
+    opacity: 0.8,
+    radius:30
   });
 
 }
