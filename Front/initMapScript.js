@@ -37,7 +37,7 @@ function initMap() {
 
 	//Map display options
   var mapSettings = {
-    zoom: 5,
+    zoom: 4.5,
     center: {lat:39.8283, lng:-98.5795},
     disableDefaultUI:true,
     zoomControl: false,
@@ -56,7 +56,7 @@ function addMarker(city, timeout){
 		var marker = new google.maps.Marker({
 			position: city.coords,
 			map:map,
-      icon: 'https://png.icons8.com/material/96/000000/twitter.png',
+      icon: 'https://png.icons8.com/dotty/40/000000/twitter.png',
 			animation:google.maps.Animation.DROP
 		});
 
@@ -162,7 +162,7 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     opacity: 0.8,
-    radius:30,
+    radius:40,
     gradient:['rgba(0, 255, 255, 0)',
           'rgba(0, 255, 255, 1)',
           'rgba(0, 191, 255, 1)',
