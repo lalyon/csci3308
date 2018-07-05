@@ -37,7 +37,7 @@ function initMap() {
 
 	//Map display options
   var mapSettings = {
-    zoom: 5,
+    zoom: 4,
     center: {lat:39.8283, lng:-98.5795},
     disableDefaultUI:true,
     zoomControl: false,
@@ -167,7 +167,7 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     opacity: 0.8,
-    radius:30
+    radius:40
   });
 
 }
@@ -188,11 +188,11 @@ function openTopTweets(city){
 	document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 
   var element = document.getElementById("cityname");
-  element.innerHTML = "random";
+  element.innerHTML = city.name;
 
   //document.getElementById("cityname").innerHTML = city.name;
 
-  document.getElementById("posTweet1").innerHTML = "random string";
+  document.getElementById("posTweet1").innerHTML = city.posTweet1;
   document.getElementById("posTweet2").innerHTML = city.posTweet2;
   document.getElementById("posTweet3").innerHTML = city.posTweet3;
   document.getElementById("posTweet4").innerHTML = city.posTweet4;

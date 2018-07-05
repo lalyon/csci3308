@@ -30,7 +30,7 @@ body {
 	z-index: 1;
 	top: 0;
 	right: 0;
-	background-color: #b4ebf7;
+	background-color: #8585ad;
 	overflow-x: hidden;
 	transition: 0.5s;
 
@@ -39,8 +39,8 @@ body {
 /*Content in tweet stream side bar*/
 .sidenav p {
 	text-decoration: none;
-	font-size: 25px;
-	color: #c2d2ed;
+	font-size: 20px;
+	color: white;
 	display: block;
 	transition: 0.3s;
 	padding-left: 20px;
