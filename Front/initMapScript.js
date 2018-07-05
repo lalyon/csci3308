@@ -188,7 +188,8 @@ function openTopTweets(cityName){
 
   //finding city to get its tweets, displaying tweets in sidenav
   for(var i = 0; i < cities.length; i++){
-    if(cities[i].name === cityName){break;}
+    if(cities[i].name === cityName){
+      break;
       document.getElementById("cityname").innerHTML = cities[i].name;
 
       document.getElementById("posTweet1").innerHTML = cities[i].posTweet1;
@@ -202,8 +203,8 @@ function openTopTweets(cityName){
       document.getElementById("negTweet3").innerHTML = cities[i].negTweet3;
       document.getElementById("negTweet4").innerHTML = cities[i].negTweet4;
       document.getElementById("negTweet5").innerHTML = cities[i].negTweet5;
+    }
   }
-
 }
 
 
