@@ -178,6 +178,7 @@ function clearMarkers(){
     markers[i].setMap(null);
   }
   markers = [];
+  cities = [];
 }
 
 //Opens side Tweet feed when pin is clicked
