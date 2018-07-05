@@ -56,12 +56,12 @@ function addMarker(city, timeout){
 		var marker = new google.maps.Marker({
 			position: city.coords,
 			map:map,
-      label: city.name,
-			icon:{path:'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+			/*icon:{path:'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
 				fillColor:'#33cccc',
 				fillOpacity: 1,
 				scale: 0.5
-			},
+			},*/
+      icon: 'https://png.icons8.com/color/50/000000/map-pin.png',
 			animation:google.maps.Animation.DROP
 		});
 
@@ -167,7 +167,7 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     opacity: 0.8,
-    radius:40
+    radius:30
   });
 
 }
