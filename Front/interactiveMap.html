@@ -33,7 +33,7 @@
 				<div class="col-md-4 header">
 					<form class="" method="GET" action="">
 						<label>Time:<input type="text" name = "startTimeMessage" placeholder="e.g. 2018-06-30 00:00:00"></label>
-						<button type="button" class="btn btn-primary" id="timeButton">Submit</button> 
+						<button type="button" class="btn btn-primary" id="timeButton">Submit</button>
 					</form>
 				</div>
 			</div>
@@ -41,7 +41,19 @@
 			<!--Tweet sidenav opens when map pin is clicked-->
 			<div id="tweetStream" class ="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeTopTweets()">&times;</a>
-				<p>Tweets go here!</p>
+				<h2 id="cityname"></h2>
+				<h3>Top 5 Positive Tweets</h3>
+				<p id="posTweet1"></p><br>
+				<p id="posTweet2"></p><br>
+				<p id="posTweet3"></p><br>
+				<p id="posTweet4"></p><br>
+				<p id="posTweet5"></p><br>
+			</h3>Top 5 Negative Tweets</h3>
+			<p id="negTweet1"></p><br>
+			<p id="negTweet2"></p><br>
+			<p id="negTweet3"></p><br>
+			<p id="negTweet4"></p><br>
+			<p id="negTweet5"></p><br>
 			</div>
 			<div class="row" style="height:100%">
 				<!--Map div-->
