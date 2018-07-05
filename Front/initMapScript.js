@@ -82,7 +82,7 @@ function addMarker(city, timeout){
 		marker.addListener('click', function(){
       var cityName = marker.getLabel();
       openTopTweets(cityName);
-		})
+		});
 
 	}, timeout);
 }
