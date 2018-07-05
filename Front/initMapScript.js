@@ -187,7 +187,10 @@ function openTopTweets(city){
 	document.getElementById("tweetStream").style.width = "400px";
 	document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 
-  document.getElementById("cityname").innerHTML = city.name;
+  var element = document.getElementById("cityname");
+  element.innerHTML = "random";
+
+  //document.getElementById("cityname").innerHTML = city.name;
 
   document.getElementById("posTweet1").innerHTML = "random string";
   document.getElementById("posTweet2").innerHTML = city.posTweet2;
