@@ -56,12 +56,7 @@ function addMarker(city, timeout){
 		var marker = new google.maps.Marker({
 			position: city.coords,
 			map:map,
-			/*icon:{path:'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
-				fillColor:'#33cccc',
-				fillOpacity: 1,
-				scale: 0.5
-			},*/
-      icon: 'https://png.icons8.com/ios/50/000000/map-pin.png',
+      icon: 'https://png.icons8.com/dotty/40/000000/twitter.png',
 			animation:google.maps.Animation.DROP
 		});
 
@@ -135,7 +130,7 @@ function updateMap(data) {
       name: obj["City"],
       coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
 			content:'<h2 style="color:#262626;">'+obj["City"]+'</h2><p style="color:#262626;">Mood: '+ stringSentiment
-      +'</p><p style="color:#262626">Trending: '+obj["Trend"]+'</p><h4 style="color:#262626;">Click for top 5 tweets!</h4><p style="color:#262626">'+obj["PTweet1"]+'</p>',
+      +'</p><p style="color:#262626">Trending: '+obj["Trend"]+'</p><h4 style="color:#262626;">Click for top 5 tweets!</h4>',
       posTweet1: obj["PTweet1"],
       posTweet2: obj["PTweet2"],
       posTweet3: obj["PTweet3"],
@@ -167,7 +162,21 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     opacity: 0.8,
-    radius:30
+    radius:30,
+    gradient:['rgba(0, 255, 255, 0)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 63, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 223, 1)',
+          'rgba(0, 0, 191, 1)',
+          'rgba(0, 0, 159, 1)',
+          'rgba(0, 0, 127, 1)',
+          'rgba(63, 0, 91, 1)',
+          'rgba(127, 0, 63, 1)',
+          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 0, 1)']
   });
 
 }
