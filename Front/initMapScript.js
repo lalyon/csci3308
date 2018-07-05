@@ -135,12 +135,18 @@ function updateMap(data) {
 		city = {
       name: obj["Name"],
       coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
-			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+ stringSentiment
+			content:'<h2 style="color:black;">'+obj["City"]+'</h2><p>Mood: '+ stringSentiment
       +'</p><p>Trending: '+obj["Trend"]+'</p><h4>Click for top 5 tweets!</h4>',
-      posTweets: [obj["PTweet1"],obj["PTweet2"],obj["PTweet3"],obj["PTweet4"],
-      obj["PTweet5"]],
-      negTweets: [obj["NTweet1"],obj["NTweet2"],obj["NTweet3"],obj["NTweet4"],
-      obj["NTweet5"]]
+      posTweet1: obj["PTweet1"],
+      posTweet2: obj["PTweet2"],
+      posTweet3: obj["PTweet3"],
+      posTweet4: obj["PTweet4"],
+      posTweet5: obj["PTweet5"],
+      negTweet1: obj["NTweet1"],
+      negTweet2: obj["NTweet2"],
+      negTweet3: obj["NTweet3"],
+      negTweet4: obj["NTweet4"],
+      negTweet5: obj["NTweet5"]
 		}
 
     cities.push(city);
@@ -171,32 +177,33 @@ function clearMarkers(){
     markers[i].setMap(null);
   }
 
+  heatmap.setMap(null);
   markers = [];
-
+  heatmapData = [];
 }
 
 //Opens side Tweet feed when pin is clicked
 function openTopTweets(cityName){
 	document.getElementById("tweetStream").style.width = "375px";
 	document.getElementById("main").style.marginRight = "375px";
-	document.body.style.backgroundColor = "#052f38";
+	document.body.style.backgroundColor = "#df80ff";
 
   //finding city to get its tweets, displaying tweets in sidenav
   for(var i = 0; i < cities.length; i++){
     if(cities[i].name === cityName){
       document.getElementById("cityname").innerHTML = cities[i].name;
 
-      document.getElementById("posTweet1").innerHTML = cities[i].posTweets[0];
-      document.getElementById("posTweet2").innerHTML = cities[i].posTweets[1];
-      document.getElementById("posTweet3").innerHTML = cities[i].posTweets[2];
-      document.getElementById("posTweet4").innerHTML = cities[i].posTweets[3];
-      document.getElementById("posTweet5").innerHTML = cities[i].posTweets[4];
+      document.getElementById("posTweet1").innerHTML = cities[i].posTweet1;
+      document.getElementById("posTweet2").innerHTML = cities[i].posTweet2;
+      document.getElementById("posTweet3").innerHTML = cities[i].posTweet3;
+      document.getElementById("posTweet4").innerHTML = cities[i].posTweet4;
+      document.getElementById("posTweet5").innerHTML = cities[i].posTweet5;
 
-      document.getElementById("negTweet1").innerHTML = cities[i].negTweets[0];
-      document.getElementById("negTweet2").innerHTML = cities[i].negTweets[1];
-      document.getElementById("negTweet3").innerHTML = cities[i].negTweets[2];
-      document.getElementById("negTweet4").innerHTML = cities[i].negTweets[3];
-      document.getElementById("negTweet5").innerHTML = cities[i].negTweets[4];
+      document.getElementById("negTweet1").innerHTML = cities[i].negTweet1;
+      document.getElementById("negTweet2").innerHTML = cities[i].negTweet2;
+      document.getElementById("negTweet3").innerHTML = cities[i].negTweet3;
+      document.getElementById("negTweet4").innerHTML = cities[i].negTweet4;
+      document.getElementById("negTweet5").innerHTML = cities[i].negTweet5;
     }
   }
 
