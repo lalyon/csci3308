@@ -80,7 +80,7 @@ function addMarker(city, timeout){
 		});
 
 		marker.addListener('click', function(){
-      openTopTweets(city);
+      openTopTweets();
 		});
 
 	}, timeout);
@@ -151,7 +151,7 @@ function updateMap(data) {
     cities.push(city);
 
     var latLng = new google.maps.LatLng(Number(obj["Lat"]),Number(obj["Lng"]));
-    var weight = intSentiment*5;
+    var weight = intSentiment*12;
     var weightedLoc = {
 			location: latLng,
 			weight:weight
@@ -179,10 +179,11 @@ function clearMarkers(){
   }
   markers = [];
   cities = [];
+  heatmapData = [];
 }
 
 //Opens side Tweet feed when pin is clicked
-function openTopTweets(city){
+function openTopTweets(){
 	document.getElementById("tweetStream").style.width = "400px";
 	document.getElementById("main").style.marginRight = "400px";
 	document.body.style.backgroundColor = "#df80ff";
