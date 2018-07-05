@@ -56,7 +56,7 @@ function addMarker(city, timeout){
 		var marker = new google.maps.Marker({
 			position: city.coords,
 			map:map,
-      icon: 'https://png.icons8.com/dotty/40/000000/twitter.png',
+      icon: 'https://png.icons8.com/material/96/000000/twitter.png',
 			animation:google.maps.Animation.DROP
 		});
 
