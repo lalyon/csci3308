@@ -61,7 +61,7 @@ function addMarker(city, timeout){
 				fillOpacity: 1,
 				scale: 0.5
 			},*/
-      icon: 'https://png.icons8.com/color/50/000000/map-pin.png',
+      icon: 'https://png.icons8.com/ios/50/000000/map-pin.png',
 			animation:google.maps.Animation.DROP
 		});
 
