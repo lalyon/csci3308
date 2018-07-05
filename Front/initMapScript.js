@@ -132,7 +132,7 @@ function updateMap(data) {
       }
 
 		city = {
-      name: obj["Name"],
+      name: obj["City"],
       coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
 			content:'<h2 style="color:#262626;">'+obj["City"]+'</h2><p style="color:#262626;">Mood: '+ stringSentiment
       +'</p><p style="color:#262626">Trending: '+obj["Trend"]+'</p><h4 style="color:#262626;">Click for top 5 tweets!</h4><p style="color:#262626">'+obj["PTweet1"]+'</p>',
