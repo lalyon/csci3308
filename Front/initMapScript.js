@@ -135,8 +135,8 @@ function updateMap(data) {
 		city = {
       name: obj["Name"],
       coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
-			content:'<h2 style="color:black;">'+obj["City"]+'</h2><p>Mood: '+ stringSentiment
-      +'</p><p>Trending: '+obj["Trend"]+'</p><h4>Click for top 5 tweets!</h4>',
+			content:'<h2 style="color:#262626;">'+obj["City"]+'</h2><p style="color:#262626;">Mood: '+ stringSentiment
+      +'</p><p style="color:#262626">Trending: '+obj["Trend"]+'</p><h4 style="color:#262626;">Click for top 5 tweets!</h4>',
       posTweet1: obj["PTweet1"],
       posTweet2: obj["PTweet2"],
       posTweet3: obj["PTweet3"],
@@ -147,12 +147,12 @@ function updateMap(data) {
       negTweet3: obj["NTweet3"],
       negTweet4: obj["NTweet4"],
       negTweet5: obj["NTweet5"]
-		}
+		};
 
     cities.push(city);
 
     var latLng = new google.maps.LatLng(Number(obj["Lat"]),Number(obj["Lng"]));
-    var weight = intSentiment*7;
+    var weight = intSentiment*5;
     var weightedLoc = {
 			location: latLng,
 			weight:weight
@@ -169,6 +169,7 @@ function updateMap(data) {
     map: map,
     opacity: 0.8
   });
+
 }
 
 //Removes markers, called when creating a new map
@@ -176,20 +177,18 @@ function clearMarkers(){
   for(var i = 0; i < markers.length; i++){
     markers[i].setMap(null);
   }
-
   markers = [];
-  heatmapData = [];
 }
 
 //Opens side Tweet feed when pin is clicked
 function openTopTweets(cityName){
-	document.getElementById("tweetStream").style.width = "375px";
-	document.getElementById("main").style.marginRight = "375px";
+	document.getElementById("tweetStream").style.width = "400px";
+	document.getElementById("main").style.marginRight = "400px";
 	document.body.style.backgroundColor = "#df80ff";
 
   //finding city to get its tweets, displaying tweets in sidenav
   for(var i = 0; i < cities.length; i++){
-    if(cities[i].name === cityName){
+    if(cities[i].name === cityName){break;}
       document.getElementById("cityname").innerHTML = cities[i].name;
 
       document.getElementById("posTweet1").innerHTML = cities[i].posTweet1;
@@ -203,10 +202,11 @@ function openTopTweets(cityName){
       document.getElementById("negTweet3").innerHTML = cities[i].negTweet3;
       document.getElementById("negTweet4").innerHTML = cities[i].negTweet4;
       document.getElementById("negTweet5").innerHTML = cities[i].negTweet5;
-    }
   }
 
 }
+
+
 
 //Closes side Tweet feed
 function closeTopTweets(){
