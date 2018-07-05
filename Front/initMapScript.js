@@ -37,7 +37,7 @@ function initMap() {
 
 	//Map display options
   var mapSettings = {
-    zoom: 4,
+    zoom: 5,
     center: {lat:39.8283, lng:-98.5795},
     disableDefaultUI:true,
     zoomControl: false,
@@ -58,7 +58,7 @@ function addMarker(city, timeout){
 			map:map,
       label: city.name,
 			icon:{path:'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
-				fillColor:'silver',
+				fillColor:'#33cccc',
 				fillOpacity: 1,
 				scale: 0.5
 			},
@@ -184,9 +184,10 @@ function clearMarkers(){
 
 //Opens side Tweet feed when pin is clicked
 function openTopTweets(city){
-	document.getElementById("tweetStream").style.width = "400px";
+	document.getElementById("tweetStream").style.width = "450px";
 	document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 
+  //I don't know why this made it work but it did so...
   var element = document.getElementById("cityname");
   element.innerHTML = city.name;
 
