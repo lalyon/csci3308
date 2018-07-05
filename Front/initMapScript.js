@@ -183,7 +183,7 @@ function openTopTweets(cityName){
 
   //finding city to get its tweets, displaying tweets in sidenav
   for(var i = 0; i < cities.length; i++){
-    if(cities[i][name] === cityName){
+    if(cities[i].name === cityName){
       document.getElementById("cityname").innerHTML = cities[i].name;
 
       document.getElementById("posTweet1").innerHTML = cities[i].posTweets[0];
