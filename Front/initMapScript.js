@@ -189,7 +189,7 @@ function openTopTweets(city, marker){
 
   document.getElementById("cityname").innerHTML = city.name;
 
-  document.getElementById("posTweet1").innerHTML = "random string"
+  document.getElementById("posTweet1").innerHTML = "random string";
   document.getElementById("posTweet2").innerHTML = city.posTweet2;
   document.getElementById("posTweet3").innerHTML = city.posTweet3;
   document.getElementById("posTweet4").innerHTML = city.posTweet4;
