@@ -6,6 +6,7 @@ Marker displays info window on mouseover, showing city sentiment and trending to
 
 var map, heatmap;
 var markers = [];
+var cities = [];
 var heatmapData = [];
 
 //Initialize default blank map, called when page is loaded
@@ -55,6 +56,7 @@ function addMarker(city, timeout){
 		var marker = new google.maps.Marker({
 			position: city.coords,
 			map:map,
+      label: city.name,
 			icon:{path:'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
 				fillColor:'silver',
 				fillOpacity: 1,
@@ -78,7 +80,8 @@ function addMarker(city, timeout){
 		});
 
 		marker.addListener('click', function(){
-			openTopTweets();
+      var cityName = marker.getLabel();
+      openTopTweets(cityName);
 		})
 
 	}, timeout);
@@ -130,10 +133,17 @@ function updateMap(data) {
       }
 
 		city = {
-			coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
+      name: obj["Name"],
+      coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
 			content:'<h2>'+obj["City"]+'</h2><p>Mood: '+ stringSentiment
-      +'</p><p>Trending: '+obj["Trend"]+'</p><h4>Click for top 5 tweets!</h4>'
+      +'</p><p>Trending: '+obj["Trend"]+'</p><h4>Click for top 5 tweets!</h4>',
+      posTweets: [obj["PTweet1"],obj["PTweet2"],obj["PTweet3"],obj["PTweet4"],
+      obj["PTweet5"]],
+      negTweets: [obj["NTweet1"],obj["NTweet2"],obj["NTweet3"],obj["NTweet4"],
+      obj["NTweet5"]]
 		}
+
+    cities.push(city);
 
     var latLng = new google.maps.LatLng(Number(obj["Lat"]),Number(obj["Lng"]));
     var weight = intSentiment*7;
@@ -166,10 +176,30 @@ function clearMarkers(){
 }
 
 //Opens side Tweet feed when pin is clicked
-function openTopTweets(){
+function openTopTweets(cityName){
 	document.getElementById("tweetStream").style.width = "375px";
 	document.getElementById("main").style.marginRight = "375px";
 	document.body.style.backgroundColor = "#052f38";
+
+  //finding city to get its tweets, displaying tweets in sidenav
+  for(var i = 0; i < cities.length; i++){
+    if(cities[i][name] === cityName){
+      document.getElementById("cityname").innerHTML = cities[i].name;
+
+      document.getElementById("posTweet1").innerHTML = cities[i].posTweets[0];
+      document.getElementById("posTweet2").innerHTML = cities[i].posTweets[1];
+      document.getElementById("posTweet3").innerHTML = cities[i].posTweets[2];
+      document.getElementById("posTweet4").innerHTML = cities[i].posTweets[3];
+      document.getElementById("posTweet5").innerHTML = cities[i].posTweets[4];
+
+      document.getElementById("negTweet1").innerHTML = cities[i].negTweets[0];
+      document.getElementById("negTweet2").innerHTML = cities[i].negTweets[1];
+      document.getElementById("negTweet3").innerHTML = cities[i].negTweets[2];
+      document.getElementById("negTweet4").innerHTML = cities[i].negTweets[3];
+      document.getElementById("negTweet5").innerHTML = cities[i].negTweets[4];
+    }
+  }
+
 }
 
 //Closes side Tweet feed
