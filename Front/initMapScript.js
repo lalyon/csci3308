@@ -187,7 +187,7 @@ function openTopTweets(cityName){
 	document.body.style.backgroundColor = "#df80ff";
 
   //finding city to get its tweets, displaying tweets in sidenav
-  city = cities.find(x => x.name == cityName);
+  var city = cities.find(function(city){return city.name === cityName});
 
   document.getElementById("cityname").innerHTML = city.name;
 
