@@ -37,7 +37,7 @@ function initMap() {
 
 	//Map display options
   var mapSettings = {
-    zoom: 4.5,
+    zoom: 5,
     center: {lat:39.8283, lng:-98.5795},
     disableDefaultUI:true,
     zoomControl: false,
@@ -162,7 +162,7 @@ function updateMap(data) {
     data: heatmapData,
     map: map,
     opacity: 0.8,
-    radius:40,
+    radius:35,
     gradient:['rgba(0, 255, 255, 0)',
           'rgba(0, 255, 255, 1)',
           'rgba(0, 191, 255, 1)',
