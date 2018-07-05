@@ -136,7 +136,7 @@ function updateMap(data) {
       name: obj["Name"],
       coords:{lat:Number(obj["Lat"]),lng:Number(obj["Lng"])},
 			content:'<h2 style="color:#262626;">'+obj["City"]+'</h2><p style="color:#262626;">Mood: '+ stringSentiment
-      +'</p><p style="color:#262626">Trending: '+obj["Trend"]+'</p><h4 style="color:#262626;">Click for top 5 tweets!</h4>',
+      +'</p><p style="color:#262626">Trending: '+obj["Trend"]+'</p><h4 style="color:#262626;">Click for top 5 tweets!</h4><p style="color:#262626">'+obj["PTweet1"]+'</p>',
       posTweet1: obj["PTweet1"],
       posTweet2: obj["PTweet2"],
       posTweet3: obj["PTweet3"],
