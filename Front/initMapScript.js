@@ -187,24 +187,22 @@ function openTopTweets(cityName){
 	document.body.style.backgroundColor = "#df80ff";
 
   //finding city to get its tweets, displaying tweets in sidenav
-  for(var i = 0; i < cities.length; i++){
-    if(cities[i].name === cityName){
-      break;
-      document.getElementById("cityname").innerHTML = cities[i].name;
+  city = cities.find(x => x.name == cityName);
 
-      document.getElementById("posTweet1").innerHTML = cities[i].posTweet1;
-      document.getElementById("posTweet2").innerHTML = cities[i].posTweet2;
-      document.getElementById("posTweet3").innerHTML = cities[i].posTweet3;
-      document.getElementById("posTweet4").innerHTML = cities[i].posTweet4;
-      document.getElementById("posTweet5").innerHTML = cities[i].posTweet5;
+  document.getElementById("cityname").innerHTML = city.name;
 
-      document.getElementById("negTweet1").innerHTML = cities[i].negTweet1;
-      document.getElementById("negTweet2").innerHTML = cities[i].negTweet2;
-      document.getElementById("negTweet3").innerHTML = cities[i].negTweet3;
-      document.getElementById("negTweet4").innerHTML = cities[i].negTweet4;
-      document.getElementById("negTweet5").innerHTML = cities[i].negTweet5;
-    }
-  }
+  document.getElementById("posTweet1").innerHTML = city.posTweet1;
+  document.getElementById("posTweet2").innerHTML = city.posTweet2;
+  document.getElementById("posTweet3").innerHTML = city.posTweet3;
+  document.getElementById("posTweet4").innerHTML = city.posTweet4;
+  document.getElementById("posTweet5").innerHTML = city.posTweet5;
+
+  document.getElementById("negTweet1").innerHTML = city.negTweet1;
+  document.getElementById("negTweet2").innerHTML = city.negTweet2;
+  document.getElementById("negTweet3").innerHTML = city.negTweet3;
+  document.getElementById("negTweet4").innerHTML = city.negTweet4;
+  document.getElementById("negTweet5").innerHTML = city.negTweet5;
+
 }
 
 
