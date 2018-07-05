@@ -177,7 +177,6 @@ function clearMarkers(){
     markers[i].setMap(null);
   }
 
-  heatmap.setMap(null);
   markers = [];
   heatmapData = [];
 }
