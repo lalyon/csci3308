@@ -80,7 +80,7 @@ function addMarker(city, timeout){
 		});
 
 		marker.addListener('click', function(){
-      openTopTweets();
+      openTopTweets(city);
 		});
 
 	}, timeout);
@@ -183,10 +183,9 @@ function clearMarkers(){
 }
 
 //Opens side Tweet feed when pin is clicked
-function openTopTweets(){
+function openTopTweets(city){
 	document.getElementById("tweetStream").style.width = "400px";
-	document.getElementById("main").style.marginRight = "400px";
-	document.body.style.backgroundColor = "#df80ff";
+	document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 
   document.getElementById("cityname").innerHTML = city.name;
 
