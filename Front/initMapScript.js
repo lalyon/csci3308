@@ -1,8 +1,9 @@
-/* Map opens centered on continental US
-Default Maps UI disabled
-Populate map with default array of city markers.
-Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets
-*/
+/** 
+ * Map opens centered on continental US
+ * Default Maps UI disabled
+ * Populate map with default array of city markers.
+ * Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets
+ */
 
 var map, heatmap;
 var markers = [];

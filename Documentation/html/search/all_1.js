@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['_24city',['$City',['../classCity.html#a37b890581b830d6dcb43dee2d8c98463',1,'City']]],
+  ['_24lat',['$Lat',['../classCity.html#af2b3e408999c8ab317e80a107c543dc4',1,'City']]],
+  ['_24lng',['$Lng',['../classCity.html#a8df2449cae23d59eff5e5fa2747155e6',1,'City']]],
+  ['_24ntweet1',['$NTweet1',['../classCity.html#af0ef76f4a336e0e471971cfdcc9a4da6',1,'City']]],
+  ['_24ntweet2',['$NTweet2',['../classCity.html#a91717a27f9d2f1c3243fe1388a1013f4',1,'City']]],
+  ['_24ntweet3',['$NTweet3',['../classCity.html#a766a7b2a383e4e36c67e01c8386b8468',1,'City']]],
+  ['_24ntweet4',['$NTweet4',['../classCity.html#a9ea6a35aacc8be85c331143cde8a69c0',1,'City']]],
+  ['_24ntweet5',['$NTweet5',['../classCity.html#a08dcb59ae220e7763f2f32ac63d89018',1,'City']]],
+  ['_24ptweet1',['$PTweet1',['../classCity.html#a634b09cf48f8fa468da296007d6ff327',1,'City']]],
+  ['_24ptweet2',['$PTweet2',['../classCity.html#a7e3650629a6fa7bb4b774f68384001b1',1,'City']]],
+  ['_24ptweet3',['$PTweet3',['../classCity.html#ae5e9c77c78862ab192db09266a9042f3',1,'City']]],
+  ['_24ptweet4',['$PTweet4',['../classCity.html#a1c1e5c48b136d0c5bdc2a28401162bb5',1,'City']]],
+  ['_24ptweet5',['$PTweet5',['../classCity.html#a015736b4b7e53f4a8fb4b8913879eda5',1,'City']]],
+  ['_24sentiment',['$Sentiment',['../classCity.html#af303329814ddeefe78effa154adde16d',1,'City']]],
+  ['_24starttime',['$startTime',['../getData_8php.html#a404df05d2efcd6bb0551ecd8e7ae2315',1,'getData.php']]],
+  ['_24trend',['$Trend',['../classCity.html#a32e0805ba9ae11b3aa658d60029df1fc',1,'City']]]
+];

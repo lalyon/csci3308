@@ -1,0 +1,148 @@
+\hypertarget{namespacebuildDatabase}{}\section{build\+Database Namespace Reference}
+\label{namespacebuildDatabase}\index{build\+Database@{build\+Database}}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacebuildDatabase_aeed13a096d6a186e5884c1465f8a703d}{mariadb\+\_\+connection} = mariadb.\+connect(user=\textquotesingle{}root\textquotesingle{}, password=\textquotesingle{}\textquotesingle{}, database=\textquotesingle{}csci3308\textquotesingle{}, charset=\char`\"{}utf8mb4\char`\"{})
+\item 
+\hyperlink{namespacebuildDatabase_ad7b3e488c85e92658c04ac329ded4206}{cursor} = mariadb\+\_\+connection.\+cursor()
+\item 
+\hyperlink{namespacebuildDatabase_af03183a3a08635357da39ffff3fa0c14}{secrets} = json.\+load(\hyperlink{jquery-3_8js_a9cf09a2972472098a4c689fd988f4dfc}{f})
+\item 
+\hyperlink{namespacebuildDatabase_ac63477d68e612f77cdca1d1adcc677da}{auth}
+\item 
+\hyperlink{namespacebuildDatabase_acfedb69db26209f1c7555bd335a70860}{api}
+\item 
+\hyperlink{namespacebuildDatabase_a0233021004fd1bc913cd8e1c81f51bdd}{trend\+Places} = api.\+trends\+\_\+available()
+\item 
+int \hyperlink{namespacebuildDatabase_a4ef5ab993f0509faafc01ab906cf576b}{max} = 74
+\item 
+\hyperlink{namespacebuildDatabase_a40723c8a3a2ff51719f1a5812af49ae2}{n\+Places} = maxiflen(\hyperlink{namespacebuildDatabase_a0233021004fd1bc913cd8e1c81f51bdd}{trend\+Places})$>$maxelselen(\hyperlink{namespacebuildDatabase_a0233021004fd1bc913cd8e1c81f51bdd}{trend\+Places})
+\item 
+\hyperlink{namespacebuildDatabase_ada15f1ae1b075d6b5385c60ad0bcba7e}{woeid} = trend\+Place\mbox{[}\textquotesingle{}woeid\textquotesingle{}\mbox{]}
+\item 
+\hyperlink{namespacebuildDatabase_a2d66916cea7965a5f65dd98ef44dd261}{city} = trend\+Place\mbox{[}\textquotesingle{}name\textquotesingle{}\mbox{]}
+\item 
+\hyperlink{namespacebuildDatabase_a0d6b3715d584e19547cb25cd7f0f4d28}{query\+City} = cursor.\+execute(\char`\"{}S\+E\+L\+E\+CT Lat,Lng F\+R\+OM \hyperlink{initMapScript_8js_a76167830814420bde81accf9e460aa96}{cities} W\+H\+E\+RE \hyperlink{classCity}{City} = \textquotesingle{}\char`\"{} + city+\char`\"{}\textquotesingle{};\char`\"{})
+\item 
+\hyperlink{namespacebuildDatabase_ad2781a91cbfcd21e5be44aae5d39d257}{location} = cursor.\+fetchone()
+\item 
+string \hyperlink{namespacebuildDatabase_ac6de86e53e5b1e858c4bfc30606561e0}{geocode} = str(\hyperlink{namespacebuildDatabase_ad2781a91cbfcd21e5be44aae5d39d257}{location}\mbox{[}0\mbox{]})+\char`\"{},\char`\"{}
+\item 
+\hyperlink{namespacebuildDatabase_a00e15f8c5a38ef71e1176db990041ee0}{trends} = api.\+trends\+\_\+place(\hyperlink{namespacebuildDatabase_ada15f1ae1b075d6b5385c60ad0bcba7e}{woeid})\mbox{[}0\mbox{]}\mbox{[}\textquotesingle{}trends\textquotesingle{}\mbox{]}
+\item 
+int \hyperlink{namespacebuildDatabase_a1a68c0e0f8d22d281ad1a8b9024fd5d1}{largest} = -\/1
+\item 
+int \hyperlink{namespacebuildDatabase_abfd839e1a537e9e0ca132979eee02a28}{largest\+Ind} = -\/1
+\item 
+\hyperlink{namespacebuildDatabase_afe0b1b9174b6ce79a6fca681db02d2c6}{trend} = \hyperlink{namespacebuildDatabase_a00e15f8c5a38ef71e1176db990041ee0}{trends}\mbox{[}\hyperlink{namespacebuildDatabase_abfd839e1a537e9e0ca132979eee02a28}{largest\+Ind}\mbox{]}
+\item 
+\hyperlink{namespacebuildDatabase_a41e7e514b01675f060ab36db44904a13}{tweets} = tweepy.\+Cursor(api.\+search, \hyperlink{jquery-3_8js_aee3046c01d22ccd1efcb944608aec125}{q}=\hyperlink{namespacebuildDatabase_afe0b1b9174b6ce79a6fca681db02d2c6}{trend}\mbox{[}\textquotesingle{}query\textquotesingle{}\mbox{]}, \hyperlink{namespacebuildDatabase_ac6de86e53e5b1e858c4bfc30606561e0}{geocode}=\hyperlink{namespacebuildDatabase_ac6de86e53e5b1e858c4bfc30606561e0}{geocode}).items(99)
+\item 
+string \hyperlink{namespacebuildDatabase_a6b90ef6e990c311046eeaed437c20194}{tweet\+Texts} = \textquotesingle{}\textquotesingle{}
+\item 
+int \hyperlink{namespacebuildDatabase_a50f9b6bae964e6579ba92450127cf440}{most\+Positive} = \mbox{[}(-\/2, \textquotesingle{}\textquotesingle{})\mbox{]}$\ast$5
+\item 
+int \hyperlink{namespacebuildDatabase_adee8ced6b5216c8ebe3ad73fb6b9eb9a}{most\+Negative} = \mbox{[}(2, \textquotesingle{}\textquotesingle{})\mbox{]}$\ast$5
+\item 
+\hyperlink{namespacebuildDatabase_ad338d82c1c3c6c3d5df5034a51af3503}{text} = tweet.\+text
+\item 
+\hyperlink{namespacebuildDatabase_ab8145fb3b51cc107e9f177ffe6b4ab29}{sent} = Text\+Blob(\hyperlink{namespacebuildDatabase_ad338d82c1c3c6c3d5df5034a51af3503}{text}).sentiment.\+polarity
+\item 
+bool \hyperlink{namespacebuildDatabase_ab9d82862a48f7e4e725a899047b7ee75}{inserted} = False
+\item 
+\hyperlink{namespacebuildDatabase_a05391cf14f340a054d4f2c708576be29}{blob} = Text\+Blob(\hyperlink{namespacebuildDatabase_a6b90ef6e990c311046eeaed437c20194}{tweet\+Texts})
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\index{build\+Database@{build\+Database}!api@{api}}
+\index{api@{api}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{api}{api}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+api}\hypertarget{namespacebuildDatabase_acfedb69db26209f1c7555bd335a70860}{}\label{namespacebuildDatabase_acfedb69db26209f1c7555bd335a70860}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = tweepy.API(
+2     auth,
+3     wait\_on\_rate\_limit = \textcolor{keyword}{True},
+4     wait\_on\_rate\_limit\_notify = \textcolor{keyword}{True}
+5 )
+\end{DoxyCode}
+\index{build\+Database@{build\+Database}!auth@{auth}}
+\index{auth@{auth}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{auth}{auth}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+auth}\hypertarget{namespacebuildDatabase_ac63477d68e612f77cdca1d1adcc677da}{}\label{namespacebuildDatabase_ac63477d68e612f77cdca1d1adcc677da}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = tweepy.AppAuthHandler(
+2         secrets[\textcolor{stringliteral}{'twitter'}][\textcolor{stringliteral}{'consumer\_key'}],
+3         secrets[\textcolor{stringliteral}{'twitter'}][\textcolor{stringliteral}{'consumer\_secret'}]
+4 )
+\end{DoxyCode}
+\index{build\+Database@{build\+Database}!blob@{blob}}
+\index{blob@{blob}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{blob}{blob}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+blob = Text\+Blob({\bf tweet\+Texts})}\hypertarget{namespacebuildDatabase_a05391cf14f340a054d4f2c708576be29}{}\label{namespacebuildDatabase_a05391cf14f340a054d4f2c708576be29}
+\index{build\+Database@{build\+Database}!city@{city}}
+\index{city@{city}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{city}{city}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+city = trend\+Place\mbox{[}\textquotesingle{}name\textquotesingle{}\mbox{]}}\hypertarget{namespacebuildDatabase_a2d66916cea7965a5f65dd98ef44dd261}{}\label{namespacebuildDatabase_a2d66916cea7965a5f65dd98ef44dd261}
+\index{build\+Database@{build\+Database}!cursor@{cursor}}
+\index{cursor@{cursor}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{cursor}{cursor}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+cursor = mariadb\+\_\+connection.\+cursor()}\hypertarget{namespacebuildDatabase_ad7b3e488c85e92658c04ac329ded4206}{}\label{namespacebuildDatabase_ad7b3e488c85e92658c04ac329ded4206}
+\index{build\+Database@{build\+Database}!geocode@{geocode}}
+\index{geocode@{geocode}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{geocode}{geocode}}]{\setlength{\rightskip}{0pt plus 5cm}string build\+Database.\+geocode = str({\bf location}\mbox{[}0\mbox{]})+\char`\"{},\char`\"{}}\hypertarget{namespacebuildDatabase_ac6de86e53e5b1e858c4bfc30606561e0}{}\label{namespacebuildDatabase_ac6de86e53e5b1e858c4bfc30606561e0}
+\index{build\+Database@{build\+Database}!inserted@{inserted}}
+\index{inserted@{inserted}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{inserted}{inserted}}]{\setlength{\rightskip}{0pt plus 5cm}bool build\+Database.\+inserted = False}\hypertarget{namespacebuildDatabase_ab9d82862a48f7e4e725a899047b7ee75}{}\label{namespacebuildDatabase_ab9d82862a48f7e4e725a899047b7ee75}
+\index{build\+Database@{build\+Database}!largest@{largest}}
+\index{largest@{largest}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{largest}{largest}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+largest = -\/1}\hypertarget{namespacebuildDatabase_a1a68c0e0f8d22d281ad1a8b9024fd5d1}{}\label{namespacebuildDatabase_a1a68c0e0f8d22d281ad1a8b9024fd5d1}
+\index{build\+Database@{build\+Database}!largest\+Ind@{largest\+Ind}}
+\index{largest\+Ind@{largest\+Ind}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{largest\+Ind}{largestInd}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+largest\+Ind = -\/1}\hypertarget{namespacebuildDatabase_abfd839e1a537e9e0ca132979eee02a28}{}\label{namespacebuildDatabase_abfd839e1a537e9e0ca132979eee02a28}
+\index{build\+Database@{build\+Database}!location@{location}}
+\index{location@{location}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{location}{location}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+location = cursor.\+fetchone()}\hypertarget{namespacebuildDatabase_ad2781a91cbfcd21e5be44aae5d39d257}{}\label{namespacebuildDatabase_ad2781a91cbfcd21e5be44aae5d39d257}
+\index{build\+Database@{build\+Database}!mariadb\+\_\+connection@{mariadb\+\_\+connection}}
+\index{mariadb\+\_\+connection@{mariadb\+\_\+connection}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{mariadb\+\_\+connection}{mariadb_connection}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+mariadb\+\_\+connection = mariadb.\+connect(user=\textquotesingle{}root\textquotesingle{}, password=\textquotesingle{}\textquotesingle{}, database=\textquotesingle{}csci3308\textquotesingle{}, charset=\char`\"{}utf8mb4\char`\"{})}\hypertarget{namespacebuildDatabase_aeed13a096d6a186e5884c1465f8a703d}{}\label{namespacebuildDatabase_aeed13a096d6a186e5884c1465f8a703d}
+\index{build\+Database@{build\+Database}!max@{max}}
+\index{max@{max}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{max}{max}}]{\setlength{\rightskip}{0pt plus 5cm}int build\+Database.\+max = 74}\hypertarget{namespacebuildDatabase_a4ef5ab993f0509faafc01ab906cf576b}{}\label{namespacebuildDatabase_a4ef5ab993f0509faafc01ab906cf576b}
+\index{build\+Database@{build\+Database}!most\+Negative@{most\+Negative}}
+\index{most\+Negative@{most\+Negative}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{most\+Negative}{mostNegative}}]{\setlength{\rightskip}{0pt plus 5cm}int build\+Database.\+most\+Negative = \mbox{[}(2, \textquotesingle{}\textquotesingle{})\mbox{]}$\ast$5}\hypertarget{namespacebuildDatabase_adee8ced6b5216c8ebe3ad73fb6b9eb9a}{}\label{namespacebuildDatabase_adee8ced6b5216c8ebe3ad73fb6b9eb9a}
+\index{build\+Database@{build\+Database}!most\+Positive@{most\+Positive}}
+\index{most\+Positive@{most\+Positive}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{most\+Positive}{mostPositive}}]{\setlength{\rightskip}{0pt plus 5cm}int build\+Database.\+most\+Positive = \mbox{[}(-\/2, \textquotesingle{}\textquotesingle{})\mbox{]}$\ast$5}\hypertarget{namespacebuildDatabase_a50f9b6bae964e6579ba92450127cf440}{}\label{namespacebuildDatabase_a50f9b6bae964e6579ba92450127cf440}
+\index{build\+Database@{build\+Database}!n\+Places@{n\+Places}}
+\index{n\+Places@{n\+Places}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{n\+Places}{nPlaces}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+n\+Places = maxiflen({\bf trend\+Places})$>$maxelselen({\bf trend\+Places})}\hypertarget{namespacebuildDatabase_a40723c8a3a2ff51719f1a5812af49ae2}{}\label{namespacebuildDatabase_a40723c8a3a2ff51719f1a5812af49ae2}
+\index{build\+Database@{build\+Database}!query\+City@{query\+City}}
+\index{query\+City@{query\+City}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{query\+City}{queryCity}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+query\+City = cursor.\+execute(\char`\"{}S\+E\+L\+E\+CT Lat,Lng F\+R\+OM {\bf cities} W\+H\+E\+RE {\bf City} = \textquotesingle{}\char`\"{} + city+\char`\"{}\textquotesingle{};\char`\"{})}\hypertarget{namespacebuildDatabase_a0d6b3715d584e19547cb25cd7f0f4d28}{}\label{namespacebuildDatabase_a0d6b3715d584e19547cb25cd7f0f4d28}
+\index{build\+Database@{build\+Database}!secrets@{secrets}}
+\index{secrets@{secrets}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{secrets}{secrets}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+secrets = json.\+load({\bf f})}\hypertarget{namespacebuildDatabase_af03183a3a08635357da39ffff3fa0c14}{}\label{namespacebuildDatabase_af03183a3a08635357da39ffff3fa0c14}
+\index{build\+Database@{build\+Database}!sent@{sent}}
+\index{sent@{sent}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{sent}{sent}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+sent = Text\+Blob({\bf text}).sentiment.\+polarity}\hypertarget{namespacebuildDatabase_ab8145fb3b51cc107e9f177ffe6b4ab29}{}\label{namespacebuildDatabase_ab8145fb3b51cc107e9f177ffe6b4ab29}
+\index{build\+Database@{build\+Database}!text@{text}}
+\index{text@{text}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{text}{text}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+text = tweet.\+text}\hypertarget{namespacebuildDatabase_ad338d82c1c3c6c3d5df5034a51af3503}{}\label{namespacebuildDatabase_ad338d82c1c3c6c3d5df5034a51af3503}
+\index{build\+Database@{build\+Database}!trend@{trend}}
+\index{trend@{trend}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{trend}{trend}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+trend = {\bf trends}\mbox{[}{\bf largest\+Ind}\mbox{]}}\hypertarget{namespacebuildDatabase_afe0b1b9174b6ce79a6fca681db02d2c6}{}\label{namespacebuildDatabase_afe0b1b9174b6ce79a6fca681db02d2c6}
+\index{build\+Database@{build\+Database}!trend\+Places@{trend\+Places}}
+\index{trend\+Places@{trend\+Places}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{trend\+Places}{trendPlaces}}]{\setlength{\rightskip}{0pt plus 5cm}list build\+Database.\+trend\+Places = api.\+trends\+\_\+available()}\hypertarget{namespacebuildDatabase_a0233021004fd1bc913cd8e1c81f51bdd}{}\label{namespacebuildDatabase_a0233021004fd1bc913cd8e1c81f51bdd}
+\index{build\+Database@{build\+Database}!trends@{trends}}
+\index{trends@{trends}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{trends}{trends}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+trends = api.\+trends\+\_\+place({\bf woeid})\mbox{[}0\mbox{]}\mbox{[}\textquotesingle{}trends\textquotesingle{}\mbox{]}}\hypertarget{namespacebuildDatabase_a00e15f8c5a38ef71e1176db990041ee0}{}\label{namespacebuildDatabase_a00e15f8c5a38ef71e1176db990041ee0}
+\index{build\+Database@{build\+Database}!tweets@{tweets}}
+\index{tweets@{tweets}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{tweets}{tweets}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+tweets = tweepy.\+Cursor(api.\+search, {\bf q}={\bf trend}\mbox{[}\textquotesingle{}query\textquotesingle{}\mbox{]}, {\bf geocode}={\bf geocode}).items(99)}\hypertarget{namespacebuildDatabase_a41e7e514b01675f060ab36db44904a13}{}\label{namespacebuildDatabase_a41e7e514b01675f060ab36db44904a13}
+\index{build\+Database@{build\+Database}!tweet\+Texts@{tweet\+Texts}}
+\index{tweet\+Texts@{tweet\+Texts}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{tweet\+Texts}{tweetTexts}}]{\setlength{\rightskip}{0pt plus 5cm}string build\+Database.\+tweet\+Texts = \textquotesingle{}\textquotesingle{}}\hypertarget{namespacebuildDatabase_a6b90ef6e990c311046eeaed437c20194}{}\label{namespacebuildDatabase_a6b90ef6e990c311046eeaed437c20194}
+\index{build\+Database@{build\+Database}!woeid@{woeid}}
+\index{woeid@{woeid}!build\+Database@{build\+Database}}
+\subsubsection[{\texorpdfstring{woeid}{woeid}}]{\setlength{\rightskip}{0pt plus 5cm}build\+Database.\+woeid = trend\+Place\mbox{[}\textquotesingle{}woeid\textquotesingle{}\mbox{]}}\hypertarget{namespacebuildDatabase_ada15f1ae1b075d6b5385c60ad0bcba7e}{}\label{namespacebuildDatabase_ada15f1ae1b075d6b5385c60ad0bcba7e}
