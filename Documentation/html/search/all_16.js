@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['t',['t',['../bootstrap_8js.html#a23c5666e83bbbceee94adcd0851f50c4',1,'t():&#160;bootstrap.js'],['../jquery-3_8js.html#a5459dd59c2ac7c323d9ca8bca22ff249',1,'t():&#160;jquery-3.js'],['../popper_8js.html#a23c5666e83bbbceee94adcd0851f50c4',1,'t():&#160;popper.js'],['../bootstrap_8js.html#aa798e0c32253f973f3154aa30c996eb2',1,'T():&#160;bootstrap.js']]],
+  ['t',['T',['../bootstrap_8js.html#aa798e0c32253f973f3154aa30c996eb2',1,'T():&#160;bootstrap.js'],['../bootstrap_8js.html#a23c5666e83bbbceee94adcd0851f50c4',1,'t():&#160;bootstrap.js'],['../jquery-3_8js.html#a5459dd59c2ac7c323d9ca8bca22ff249',1,'t():&#160;jquery-3.js'],['../popper_8js.html#a23c5666e83bbbceee94adcd0851f50c4',1,'t():&#160;popper.js']]],
   ['tab',['Tab',['../bootstrap_8js.html#a7894a1cbda762084cc44f2a47ac103eb',1,'bootstrap.js']]],
   ['teardown',['tearDown',['../classdatabaseCheck_1_1databaseTestCase.html#af1023f7bb15a9b9f2f53551957e08ebe',1,'databaseCheck::databaseTestCase']]],
   ['teardownclass',['tearDownClass',['../classdatabaseCheck_1_1databaseTestCase.html#ac82e92d9d9ec371608937a6dc4b90e48',1,'databaseCheck::databaseTestCase']]],

@@ -96,12 +96,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5fdd1fc67d338661568dbc6e4fe7e719"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="initMapScript_8js.html#a5fdd1fc67d338661568dbc6e4fe7e719">initMap</a> ()</td></tr>
-<tr class="separator:a5fdd1fc67d338661568dbc6e4fe7e719"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2d77b77716c1984e0213746be37f444"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="initMapScript_8js.html#ad2d77b77716c1984e0213746be37f444">addMarker</a> (city, timeout)</td></tr>
 <tr class="separator:ad2d77b77716c1984e0213746be37f444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eb09a0060437475d0443073ff2b9f11"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="initMapScript_8js.html#a5eb09a0060437475d0443073ff2b9f11">updateMap</a> (data)</td></tr>
-<tr class="separator:a5eb09a0060437475d0443073ff2b9f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47b627f5b5f4c78719ae1b9dcb5d0d3c"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="initMapScript_8js.html#a47b627f5b5f4c78719ae1b9dcb5d0d3c">clearMarkers</a> ()</td></tr>
 <tr class="separator:a47b627f5b5f4c78719ae1b9dcb5d0d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e9eb255998762410609aa6d022e4533"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="initMapScript_8js.html#a5e9eb255998762410609aa6d022e4533">openTopTweets</a> (city)</td></tr>
@@ -122,7 +118,9 @@ Variables</h2></td></tr>
 <tr class="memitem:ab23b8f7cc4b88e4ee7dff170273f7712"><td class="memItemLeft" align="right" valign="top">var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="initMapScript_8js.html#ab23b8f7cc4b88e4ee7dff170273f7712">heatmapData</a> = []</td></tr>
 <tr class="separator:ab23b8f7cc4b88e4ee7dff170273f7712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Map opens centered on continental US. Default Maps UI disabled. Populate map with default array of city markers. Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ad2d77b77716c1984e0213746be37f444"></a>
 <div class="memitem">
 <div class="memproto">
@@ -146,6 +144,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Adds marker to map, sets location, icon image, animation, info windows </p>
 
 </div>
 </div>
@@ -161,6 +160,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Removes markers, called when creating a new map </p>
 
 </div>
 </div>
@@ -176,21 +176,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5fdd1fc67d338661568dbc6e4fe7e719"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">function initMap </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Closes side Tweet feed </p>
 
 </div>
 </div>
@@ -207,22 +193,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5eb09a0060437475d0443073ff2b9f11"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">function updateMap </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Opens side Tweet feed when pin is clicked </p>
 
 </div>
 </div>
@@ -272,7 +243,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Map opens centered on continental US Default Maps UI disabled Populate map with default array of city markers. Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets </p>
 
 </div>
 </div>

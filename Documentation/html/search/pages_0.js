@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readme',['README',['../md_README.html',1,'']]]
+  ['csci_203308_20project_20documentation',['CSCI 3308 Project Documentation',['../index.html',1,'']]]
 ];

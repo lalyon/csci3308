@@ -1,8 +1,26 @@
-/** 
- * Map opens centered on continental US
- * Default Maps UI disabled
+/*! \mainpage CSCI 3308 Project Documentation
+ *
+ * \section Introduction
+ *
+ * www.csci3308.com
+ *
+ * A map of the United States, with sentiment analysis from tweets with location data displayed.
+ * Filter by timestamp in format: YYYY-MM-DD HH:MM:SS (2018-06-30 00:00:00)
+ *
+ * \section file_sec File Description
+ *
+ * Folder "Front" contains display html for map and folder "Back" contains the scripts running 
+ * the sentiment analysis. Folder "Documentation" contains the doxygen system for the project, 
+ * which can be seen by starting a local host in the Documentation folder and viewing that 
+ * localhost in a web browser. Folder "Tests" contains scripts for the testing of the project.
+ *
+ */
+
+/*! \file
+ * Map opens centered on continental US.
+ * Default Maps UI disabled.
  * Populate map with default array of city markers.
- * Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets
+ * Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/- tweets.
  */
 
 var map, heatmap;
@@ -10,9 +28,10 @@ var markers = [];
 var cities = [];
 var heatmapData = [];
 
-//Initialize default blank map, called when page is loaded
+/*! Initialize default blank map, called when page is loaded.
+ */
 function initMap() {
-	//Fancy custom map style
+	//Fancy custom map style.
   var mapStyle = [
   {"elementType": "geometry","stylers": [{"color": "#f5f5f5"}]},{"elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"elementType":
   "labels.text.fill","stylers": [{"color": "#616161"}]},{"elementType": "labels.text.stroke","stylers": [{"color": "#f5f5f5"}]},{"featureType": "administrative.land_parcel","stylers": [{"visibility": "off"}]},{
@@ -36,8 +55,9 @@ function initMap() {
   "elementType": "labels.text.fill","stylers": [{"color": "#9e9e9e"}]}
   ];
 
-	//Map display options
-  var mapSettings = {
+
+
+  var mapSettings = { /*!< \var Map display options. */
     zoom: 5,
     center: {lat:39.8283, lng:-98.5795},
     disableDefaultUI:true,
@@ -51,7 +71,8 @@ function initMap() {
 
 }
 
-//Adds marker to map, sets location, icon image, animation, info windows
+/*! Adds marker to map, sets location, icon image, animation, info windows
+*/
 function addMarker(city, timeout){
 	window.setTimeout(function(){
 		var marker = new google.maps.Marker({
@@ -82,21 +103,20 @@ function addMarker(city, timeout){
 	}, timeout);
 }
 
-//Called when form is submitted, clears previous markers, sets heatmap data, adds heatmap layer
+/*! Called when form is submitted, clears previous markers, sets heatmap data, adds heatmap layer
+*/
 function updateMap(data) {
 
   clearMarkers();
 
-  //Parses JSON string after submit button is pressed
-  data = JSON.parse(data);
+  data = JSON.parse(data); /*!< \var Parses JSON string after submit button is pressed */
 	console.log(data);
 
 	//Using parsed data to populate heatmap array and add markers
 	for (var i = 0; i < data.length; i++) {
 		obj = data[i];
 
-    //Translating numerical sentiment score to words
-    var intSentiment = 1 + Number(obj["Sentiment"]);
+    var intSentiment = 1 + Number(obj["Sentiment"]); /*!< \var Translating numerical sentiment score to words */
     var stringSentiment = "";
 
     if(intSentiment <= 0.286){
@@ -158,8 +178,7 @@ function updateMap(data) {
     addMarker(city,i*80);
 	}
 
-	//Adds heatmap layer to map, sets options
-  heatmap = new google.maps.visualization.HeatmapLayer({
+  heatmap = new google.maps.visualization.HeatmapLayer({ /*< \var Adds heatmap layer to map, sets options */
     data: heatmapData,
     map: map,
     opacity: 0.8,
@@ -182,7 +201,8 @@ function updateMap(data) {
 
 }
 
-//Removes markers, called when creating a new map
+/*! Removes markers, called when creating a new map
+*/
 function clearMarkers(){
   for(var i = 0; i < markers.length; i++){
     markers[i].setMap(null);
@@ -192,7 +212,8 @@ function clearMarkers(){
   heatmapData = [];
 }
 
-//Opens side Tweet feed when pin is clicked
+/*! Opens side Tweet feed when pin is clicked
+*/
 function openTopTweets(city){
 	document.getElementById("tweetStream").style.width = "450px";
 	document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
@@ -219,7 +240,8 @@ function openTopTweets(city){
 
 
 
-//Closes side Tweet feed
+/*! Closes side Tweet feed
+*/
 function closeTopTweets(){
 	document.getElementById("tweetStream").style.width = "0";
 	document.getElementById("main").style.marginRight = "30px";

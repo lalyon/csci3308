@@ -3,11 +3,7 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-function \hyperlink{initMapScript_8js_a5fdd1fc67d338661568dbc6e4fe7e719}{init\+Map} ()
-\item 
 function \hyperlink{initMapScript_8js_ad2d77b77716c1984e0213746be37f444}{add\+Marker} (city, timeout)
-\item 
-function \hyperlink{initMapScript_8js_a5eb09a0060437475d0443073ff2b9f11}{update\+Map} (data)
 \item 
 function \hyperlink{initMapScript_8js_a47b627f5b5f4c78719ae1b9dcb5d0d3c}{clear\+Markers} ()
 \item 
@@ -30,6 +26,9 @@ var \hyperlink{initMapScript_8js_ab23b8f7cc4b88e4ee7dff170273f7712}{heatmap\+Dat
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Map opens centered on continental US. Default Maps UI disabled. Populate map with default array of city markers. Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/-\/ tweets. 
+
 \subsection{Function Documentation}
 \index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!add\+Marker@{add\+Marker}}
 \index{add\+Marker@{add\+Marker}!init\+Map\+Script.\+js@{init\+Map\+Script.\+js}}
@@ -39,42 +38,28 @@ var \hyperlink{initMapScript_8js_ab23b8f7cc4b88e4ee7dff170273f7712}{heatmap\+Dat
 \item[{}]{timeout}
 \end{DoxyParamCaption}
 )}\hypertarget{initMapScript_8js_ad2d77b77716c1984e0213746be37f444}{}\label{initMapScript_8js_ad2d77b77716c1984e0213746be37f444}
-\index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!clear\+Markers@{clear\+Markers}}
+Adds marker to map, sets location, icon image, animation, info windows \index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!clear\+Markers@{clear\+Markers}}
 \index{clear\+Markers@{clear\+Markers}!init\+Map\+Script.\+js@{init\+Map\+Script.\+js}}
 \subsubsection[{\texorpdfstring{clear\+Markers()}{clearMarkers()}}]{\setlength{\rightskip}{0pt plus 5cm}function clear\+Markers (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{initMapScript_8js_a47b627f5b5f4c78719ae1b9dcb5d0d3c}{}\label{initMapScript_8js_a47b627f5b5f4c78719ae1b9dcb5d0d3c}
-\index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!close\+Top\+Tweets@{close\+Top\+Tweets}}
+Removes markers, called when creating a new map \index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!close\+Top\+Tweets@{close\+Top\+Tweets}}
 \index{close\+Top\+Tweets@{close\+Top\+Tweets}!init\+Map\+Script.\+js@{init\+Map\+Script.\+js}}
 \subsubsection[{\texorpdfstring{close\+Top\+Tweets()}{closeTopTweets()}}]{\setlength{\rightskip}{0pt plus 5cm}function close\+Top\+Tweets (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{initMapScript_8js_a3d31417019791d5852b84e7fe01c8208}{}\label{initMapScript_8js_a3d31417019791d5852b84e7fe01c8208}
-\index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!init\+Map@{init\+Map}}
-\index{init\+Map@{init\+Map}!init\+Map\+Script.\+js@{init\+Map\+Script.\+js}}
-\subsubsection[{\texorpdfstring{init\+Map()}{initMap()}}]{\setlength{\rightskip}{0pt plus 5cm}function init\+Map (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{initMapScript_8js_a5fdd1fc67d338661568dbc6e4fe7e719}{}\label{initMapScript_8js_a5fdd1fc67d338661568dbc6e4fe7e719}
-\index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!open\+Top\+Tweets@{open\+Top\+Tweets}}
+Closes side Tweet feed \index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!open\+Top\+Tweets@{open\+Top\+Tweets}}
 \index{open\+Top\+Tweets@{open\+Top\+Tweets}!init\+Map\+Script.\+js@{init\+Map\+Script.\+js}}
 \subsubsection[{\texorpdfstring{open\+Top\+Tweets(city)}{openTopTweets(city)}}]{\setlength{\rightskip}{0pt plus 5cm}function open\+Top\+Tweets (
 \begin{DoxyParamCaption}
 \item[{}]{city}
 \end{DoxyParamCaption}
 )}\hypertarget{initMapScript_8js_a5e9eb255998762410609aa6d022e4533}{}\label{initMapScript_8js_a5e9eb255998762410609aa6d022e4533}
-\index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!update\+Map@{update\+Map}}
-\index{update\+Map@{update\+Map}!init\+Map\+Script.\+js@{init\+Map\+Script.\+js}}
-\subsubsection[{\texorpdfstring{update\+Map(data)}{updateMap(data)}}]{\setlength{\rightskip}{0pt plus 5cm}function update\+Map (
-\begin{DoxyParamCaption}
-\item[{}]{data}
-\end{DoxyParamCaption}
-)}\hypertarget{initMapScript_8js_a5eb09a0060437475d0443073ff2b9f11}{}\label{initMapScript_8js_a5eb09a0060437475d0443073ff2b9f11}
-
+Opens side Tweet feed when pin is clicked 
 
 \subsection{Variable Documentation}
 \index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!cities@{cities}}
@@ -89,6 +74,6 @@ var \hyperlink{initMapScript_8js_ab23b8f7cc4b88e4ee7dff170273f7712}{heatmap\+Dat
 \index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!map@{map}}
 \index{map@{map}!init\+Map\+Script.\+js@{init\+Map\+Script.\+js}}
 \subsubsection[{\texorpdfstring{map}{map}}]{\setlength{\rightskip}{0pt plus 5cm}var map}\hypertarget{initMapScript_8js_a48e18769649a3ca5bab0fafdec44cb15}{}\label{initMapScript_8js_a48e18769649a3ca5bab0fafdec44cb15}
-Map opens centered on continental US Default Maps UI disabled Populate map with default array of city markers. Marker displays info window on mouseover, showing city sentiment and trending topic, clicking marker opens side menu for top 5 +/-\/ tweets \index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!markers@{markers}}
+\index{init\+Map\+Script.\+js@{init\+Map\+Script.\+js}!markers@{markers}}
 \index{markers@{markers}!init\+Map\+Script.\+js@{init\+Map\+Script.\+js}}
 \subsubsection[{\texorpdfstring{markers}{markers}}]{\setlength{\rightskip}{0pt plus 5cm}var markers = \mbox{[}$\,$\mbox{]}}\hypertarget{initMapScript_8js_a01221971c64d5c4d500c20621d26cae7}{}\label{initMapScript_8js_a01221971c64d5c4d500c20621d26cae7}

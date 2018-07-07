@@ -7,5 +7,6 @@ var searchData=
   ['clearmarkers',['clearMarkers',['../initMapScript_8js.html#a47b627f5b5f4c78719ae1b9dcb5d0d3c',1,'initMapScript.js']]],
   ['closetoptweets',['closeTopTweets',['../initMapScript_8js.html#a3d31417019791d5852b84e7fe01c8208',1,'initMapScript.js']]],
   ['collapse',['Collapse',['../bootstrap_8js.html#a9cc1096330cc4b7cbbb959246d6968fb',1,'bootstrap.js']]],
-  ['cursor',['cursor',['../namespacebuildDatabase.html#ad7b3e488c85e92658c04ac329ded4206',1,'buildDatabase.cursor()'],['../namespacestoreCities.html#a646bdebfa2acb2fc972c5ad8432a1b77',1,'storeCities.cursor()']]]
+  ['cursor',['cursor',['../namespacebuildDatabase.html#ad7b3e488c85e92658c04ac329ded4206',1,'buildDatabase.cursor()'],['../namespacestoreCities.html#a646bdebfa2acb2fc972c5ad8432a1b77',1,'storeCities.cursor()']]],
+  ['csci_203308_20project_20documentation',['CSCI 3308 Project Documentation',['../index.html',1,'']]]
 ];

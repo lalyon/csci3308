@@ -1,6 +1,7 @@
 <?php
-#This is a class that we will keep our information in;
-class City {
+
+//! This is a class that we will keep our information in.
+class City { 
 	public $City = "";
 	public $Trend = "";
 	public $Lat = "";
@@ -65,8 +66,8 @@ function getData($startTime, $endTime){
 	}
 	$connection->close();
 }
-#This gets the start and end time of the range of tweets from our the server and assigns it to a variable
-$startTime = $_GET["startTime"];
+
+$startTime = $_GET["startTime"]; //! This gets the start and end time of the range of tweets from our the server and assigns it to a variable
 if (strlen($startTime)) {
 	$endTime = $startTime;
 	$dateInterval = new DateInterval('PT15M');

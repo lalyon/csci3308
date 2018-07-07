@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a80aea07234708a7a2804a1c52e122156"><td class="memItemLeft" align="right" valign="top">document&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dates_8js.html#a80aea07234708a7a2804a1c52e122156">ready</a> (function(){$('#timeButton').click(function(event){event.preventDefault();var startTime=($(':text[name=&quot;startTimeMessage&quot;]').val()).replace(' ','%20');console.log(startTime)$(&quot;#message&quot;).load(&quot;getData.php?startTime=&quot;+startTime);<a class="el" href="initMapScript_8js.html#a5eb09a0060437475d0443073ff2b9f11">updateMap</a>($('#message').text())});})</td></tr>
+<tr class="memitem:a80aea07234708a7a2804a1c52e122156"><td class="memItemLeft" align="right" valign="top">document&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dates_8js.html#a80aea07234708a7a2804a1c52e122156">ready</a> (function(){$('#timeButton').click(function(event){event.preventDefault();var startTime=($(':text[name=&quot;startTimeMessage&quot;]').val()).replace(' ','%20');console.log(startTime)$(&quot;#message&quot;).load(&quot;getData.php?startTime=&quot;+startTime);updateMap($('#message').text())});})</td></tr>
 <tr class="separator:a80aea07234708a7a2804a1c52e122156"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -106,12 +106,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">document ready </td>
           <td>(</td>
-          <td class="paramtype">function(){$('#timeButton').click(function(event){event.preventDefault();var startTime=($(':text[name=&quot;startTimeMessage&quot;]').val()).replace(' ','%20');console.log(startTime)$(&quot;#message&quot;).load(&quot;getData.php?startTime=&quot;+startTime);<a class="el" href="initMapScript_8js.html#a5eb09a0060437475d0443073ff2b9f11">updateMap</a>($('#message').text())});}&#160;</td>
+          <td class="paramtype">function(){$('#timeButton').click(function(event){event.preventDefault();var startTime=($(':text[name=&quot;startTimeMessage&quot;]').val()).replace(' ','%20');console.log(startTime)$(&quot;#message&quot;).load(&quot;getData.php?startTime=&quot;+startTime);updateMap($('#message').text())});}&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Bind submit button onclick handler to send an Ajax request and process Ajax response. </p>
 
 </div>
 </div>

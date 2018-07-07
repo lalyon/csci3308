@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['t',['t',['../bootstrap_8js.html#a23c5666e83bbbceee94adcd0851f50c4',1,'t():&#160;bootstrap.js'],['../jquery-3_8js.html#a5459dd59c2ac7c323d9ca8bca22ff249',1,'t():&#160;jquery-3.js'],['../popper_8js.html#a23c5666e83bbbceee94adcd0851f50c4',1,'t():&#160;popper.js'],['../bootstrap_8js.html#aa798e0c32253f973f3154aa30c996eb2',1,'T():&#160;bootstrap.js']]],
+  ['t',['T',['../bootstrap_8js.html#aa798e0c32253f973f3154aa30c996eb2',1,'T():&#160;bootstrap.js'],['../bootstrap_8js.html#a23c5666e83bbbceee94adcd0851f50c4',1,'t():&#160;bootstrap.js'],['../jquery-3_8js.html#a5459dd59c2ac7c323d9ca8bca22ff249',1,'t():&#160;jquery-3.js'],['../popper_8js.html#a23c5666e83bbbceee94adcd0851f50c4',1,'t():&#160;popper.js']]],
   ['tab',['Tab',['../bootstrap_8js.html#a7894a1cbda762084cc44f2a47ac103eb',1,'bootstrap.js']]],
   ['text',['text',['../namespacebuildDatabase.html#ad338d82c1c3c6c3d5df5034a51af3503',1,'buildDatabase']]],
   ['this',['this',['../bootstrap_8js.html#a05c09a5e9d53fa7adf0a7936038c2fa3',1,'bootstrap.js']]],

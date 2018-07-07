@@ -4,9 +4,9 @@ var indexSectionsWithContent =
   1: "cdg",
   2: "bds",
   3: "bdgijprs",
-  4: "!acdegioprstuw",
+  4: "!acdegioprstw",
   5: "$_abcdefghijklmnopqrstuvwxy",
-  6: "r"
+  6: "cr"
 };
 
 var indexSectionNames =
